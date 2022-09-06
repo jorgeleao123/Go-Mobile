@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">go-app</string>
+
+    <!-- Cadastro/Login -->
+    <string name="str_titulo">Vamos começar!</string>
+    <string name="str_subtitulo">Faça o login ou cadastro para ter mais acesso a mais informações do seu motorista</string>
+
+</resources>

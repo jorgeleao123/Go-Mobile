@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logo" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_vamos_comecar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20sp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:paddingBottom="5sp"
+            android:text="@string/str_titulo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/str_subtitulo"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button_ja_tenho_conta"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:clickable="false"
+            android:backgroundTint="@color/primary_gray"/>
+
+        <Button
+            android:id="@+id/button_quero_me_cadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:clickable="false"
+            android:backgroundTint="@color/primary_gray"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
