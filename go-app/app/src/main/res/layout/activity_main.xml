@@ -53,23 +53,25 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/button_ja_tenho_conta"
+            android:id="@+id/btn_ja_tenho_conta"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:clickable="false"
-            android:backgroundTint="@color/primary_gray"/>
+            android:backgroundTint="@color/primary_gray"
+            android:text="@string/ti_quero_cadastrar_titulo"
+            android:textAllCaps="false"
+            android:textColor="@color/title_color"
+            android:textAlignment="viewEnd"/>
 
         <Button
-            android:id="@+id/button_quero_me_cadastrar"
+            android:id="@+id/btn_quero_me_cadastrar"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:clickable="false"
             android:backgroundTint="@color/primary_gray"
             android:text="@string/ti_tenho_conta_titulo"
             android:textAllCaps="false"
             android:textColor="@color/title_color"
             android:textAlignment="viewEnd"
-            android:drawableLeft="@drawable/"/>
+            android:onClick="goToLogin"/>
 
     </LinearLayout>
 
