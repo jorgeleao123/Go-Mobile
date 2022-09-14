@@ -33,13 +33,16 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:paddingBottom="5sp"
-            android:text="@string/str_titulo"/>
+            android:fontFamily="@font/mukta_extrabold"
+            android:textColor="@color/title_color"
+            android:text="@string/ti_titulo"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:text="@string/str_subtitulo"/>
+            android:fontFamily="@font/mukta_light"
+            android:text="@string/ti_subtitulo"/>
 
     </LinearLayout>
 
@@ -61,7 +64,12 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:clickable="false"
-            android:backgroundTint="@color/primary_gray"/>
+            android:backgroundTint="@color/primary_gray"
+            android:text="@string/ti_tenho_conta_titulo"
+            android:textAllCaps="false"
+            android:textColor="@color/title_color"
+            android:textAlignment="viewEnd"
+            android:drawableLeft="@drawable/"/>
 
     </LinearLayout>
 
