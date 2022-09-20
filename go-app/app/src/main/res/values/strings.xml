@@ -1,8 +1,27 @@
 <resources>
+    <!-- global -->
     <string name="app_name">go-app</string>
+    <string name="btn_proximo">Próximo</string>
 
-    <!-- Cadastro/Login -->
-    <string name="str_titulo">Vamos começar!</string>
-    <string name="str_subtitulo">Faça o login ou cadastro para ter mais acesso a mais informações do seu motorista</string>
+    <!-- Tela inicial -->
+    <string name="ti_titulo">Vamos começar!</string>
+    <string name="ti_subtitulo">Faça o login ou cadastro para ter mais acesso a mais informações do seu motorista</string>
+
+    <string name="ti_tenho_conta_titulo">Já tenho conta</string>
+    <string name="ti_tenho_conta_subtitulo">Faça login com seu email e senha já cadastrados.</string>
+
+    <string name="ti_quero_cadastrar_titulo">Quero me cadastrar</string>
+    <string name="ti_quero_cadastrar_subtitulo">Cadastre-se e faça login para continuar.</string>
+
+    <!-- Cadastro 1 -->
+    <string name="ca_titluo">Cadastre-se</string>
+    <string name="ca_subtitulo">Faça seu cadastro e veja se o seu motorista possui alguma denuncia publicada aqui.</string>
+    <string name="ca_email">Email</string>
+    <string name="ca_email_hint">Insira seu email</string>
+    <string name="ca_senha">Senha</string>
+    <string name="ca_senha_hint">Insira sua senha</string>
+    <string name="ca_confi_senha">Confirmar senha</string>
+    <string name="ca_confi_senha_hint">Confirme sua senha</string>
+
 
 </resources>
