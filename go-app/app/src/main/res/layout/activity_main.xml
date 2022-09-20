@@ -5,22 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp"
+    android:padding="25dp"
     tools:context=".MainActivity">
 
+    <!-- Logo -->
     <LinearLayout
         android:id="@+id/ll_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="20dp">
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logo" />
+            android:src="@drawable/logo_go_1"/>
 
     </LinearLayout>
 
+    <!-- Vamos começar -->
     <LinearLayout
         android:id="@+id/ll_vamos_comecar"
         android:layout_width="match_parent"
@@ -46,36 +48,122 @@
 
     </LinearLayout>
 
+    <!-- Botões de cadastro/login -->
     <LinearLayout
         android:id="@+id/ll_btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_ja_tenho_conta"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:backgroundTint="@color/primary_gray"
-            android:text="@string/ti_quero_cadastrar_titulo"
-            android:textAllCaps="false"
-            android:textColor="@color/title_color"
-            android:textAlignment="viewEnd"/>
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginVertical="20dp"
+            android:paddingHorizontal="20dp"
+            android:background="@color/primary_gray">
 
-        <Button
-            android:id="@+id/btn_quero_me_cadastrar"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/login_icon"/>
+
+                <TextView
+                    android:paddingVertical="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mukta_bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/title_color"
+                    android:text="@string/ti_tenho_conta_titulo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mukta_regular"
+                    android:textSize="15sp"
+                    android:textColor="@color/title_color"
+                    android:text="@string/ti_tenho_conta_subtitulo"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_right_icon"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:backgroundTint="@color/primary_gray"
-            android:text="@string/ti_tenho_conta_titulo"
-            android:textAllCaps="false"
-            android:textColor="@color/title_color"
-            android:textAlignment="viewEnd"
-            android:onClick="goToLogin"/>
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingHorizontal="20dp"
+            android:background="@color/primary_gray">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/cadastrar_icon"/>
+
+                <TextView
+                    android:paddingVertical="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mukta_bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/title_color"
+                    android:text="@string/ti_quero_cadastrar_titulo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mukta_regular"
+                    android:textSize="15sp"
+                    android:textColor="@color/title_color"
+                    android:text="@string/ti_quero_cadastrar_subtitulo"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_right_icon"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
 
     </LinearLayout>
-
-
-
 
 </LinearLayout>
