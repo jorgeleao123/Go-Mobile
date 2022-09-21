@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="25dp"
+    tools:context=".Login">
+
+    <!-- Logo -->
+    <LinearLayout
+        android:id="@+id/ll_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_go_1"/>
+
+    </LinearLayout>
+
+    <!-- Index -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_gray"
+        android:orientation="horizontal"
+        android:layout_marginBottom="25dp"
+        android:paddingVertical="5dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:fontFamily="@font/mukta_regular"
+            android:textSize="20dp"
+            android:textColor="@color/text_blue"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:fontFamily="@font/mukta_regular"
+            android:textSize="20dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:fontFamily="@font/mukta_regular"
+            android:textSize="20dp"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+    <!-- Cadastre-se -->
+    <LinearLayout
+        android:id="@+id/ll_vamos_comecar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:paddingBottom="5sp"
+            android:fontFamily="@font/mukta_extrabold"
+            android:textColor="@color/title_color"
+            android:text="@string/ca_titulo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:fontFamily="@font/mukta_light"
+            android:text="@string/ca_subtitulo"/>
+
+    </LinearLayout>
+
+    <!-- Formulário -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/ca_email"
+            android:fontFamily="@font/mukta_extrabold"
+            android:textSize="15dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/primary_gray"
+            android:fontFamily="@font/mukta_light"
+            android:hint="@string/ca_email_hint"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/ca_senha"
+            android:fontFamily="@font/mukta_extrabold"
+            android:textSize="15dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/ca_senha"
+            android:fontFamily="@font/mukta_light"
+            android:textSize="10dp"
+            android:textColor="@color/black"
+            android:paddingLeft="10dp"
+            android:background="@color/primary_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/ca_confi_senha"
+            android:fontFamily="@font/mukta_extrabold"
+            android:textSize="15dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/ca_confi_senha_hint"
+            android:fontFamily="@font/mukta_light"
+            android:textSize="10dp"
+            android:textColor="@color/black"
+            android:paddingLeft="10dp"
+            android:background="@color/primary_gray"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/btn_proximo"
+            android:textAllCaps="false"
+            android:fontFamily="@font/mukta_regular"
+            android:backgroundTint="@color/text_blue"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/ca_possui_conta"
+                android:fontFamily="@font/mukta_regular"
+                android:textAlignment="viewEnd"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2.5"
+                android:layout_height="wrap_content"
+                android:text="@string/ca_faca_login"
+                android:fontFamily="@font/mukta_regular"
+                android:textColor="@color/text_blue"
+                android:paddingLeft="5dp"
+                android:textAlignment="viewStart"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

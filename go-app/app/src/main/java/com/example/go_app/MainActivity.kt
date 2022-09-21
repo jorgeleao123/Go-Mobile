@@ -15,14 +15,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnJaTenhoConta.setOnClickListener {
+        binding.llBtnLogin.setOnClickListener {
             goToLogin()
         }
 
     }
 
     fun goToLogin(){
-        val telaCadastro = Intent(this, Cadastro1::class.java)
-        startActivity(telaCadastro)
+        val telaLogin = Intent(this, Login::class.java)
+        startActivity(telaLogin)
     }
 }

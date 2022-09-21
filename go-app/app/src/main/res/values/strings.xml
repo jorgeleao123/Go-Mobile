@@ -14,7 +14,7 @@
     <string name="ti_quero_cadastrar_subtitulo">Cadastre-se e faça login para continuar.</string>
 
     <!-- Cadastro 1 -->
-    <string name="ca_titluo">Cadastre-se</string>
+    <string name="ca_titulo">Cadastre-se</string>
     <string name="ca_subtitulo">Faça seu cadastro e veja se o seu motorista possui alguma denuncia publicada aqui.</string>
     <string name="ca_email">Email</string>
     <string name="ca_email_hint">Insira seu email</string>
@@ -22,6 +22,8 @@
     <string name="ca_senha_hint">Insira sua senha</string>
     <string name="ca_confi_senha">Confirmar senha</string>
     <string name="ca_confi_senha_hint">Confirme sua senha</string>
+    <string name="ca_possui_conta">Já possui conta?</string>
+    <string name="ca_faca_login">Faça login</string>
 
 
 </resources>
