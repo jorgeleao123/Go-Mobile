@@ -126,10 +126,12 @@
             android:textSize="15dp" />
 
         <EditText
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/primary_gray"
             android:fontFamily="@font/mukta_light"
+            android:inputType="textEmailAddress"
             android:hint="@string/ca1_email_hint"
             android:paddingLeft="10dp"
             android:textColor="@color/black"
@@ -144,9 +146,11 @@
             android:textSize="15dp" />
 
         <EditText
+            android:id="@+id/et_senha"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="@string/ca1_senha_hint"
+            android:inputType="textPassword"
             android:fontFamily="@font/mukta_light"
             android:textSize="15dp"
             android:textColor="@color/black"
@@ -162,9 +166,11 @@
             android:textSize="15dp" />
 
         <EditText
+            android:id="@+id/et_confirmSenha"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="@string/ca1_confi_senha_hint"
+            android:inputType="textPassword"
             android:fontFamily="@font/mukta_light"
             android:textSize="15dp"
             android:textColor="@color/black"

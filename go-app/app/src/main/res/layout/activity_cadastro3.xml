@@ -132,6 +132,7 @@
             android:textSize="15dp" />
 
         <EditText
+            android:id="@+id/et_cep"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/primary_gray"
@@ -150,6 +151,7 @@
             android:textSize="15dp" />
 
         <EditText
+            android:id="@+id/et_estado"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="@string/ca3_estado_hint"
@@ -168,6 +170,7 @@
             android:textSize="15dp" />
 
         <EditText
+            android:id="@+id/et_cidade"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="@string/ca3_cidade_hint"
