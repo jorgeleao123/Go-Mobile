@@ -10,8 +10,8 @@ import com.example.go_app.databinding.ActivityCadastro2Binding
 class Cadastro2 : AppCompatActivity() {
 
     private lateinit var binding: ActivityCadastro2Binding
-//    val email = intent.getStringExtra("email")
-//    val senha = intent.getStringExtra("senha")
+    lateinit var email : String
+    lateinit var senha : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +20,8 @@ class Cadastro2 : AppCompatActivity() {
 
         var nome = binding.etNome
         var data = binding.etData
+        email = intent.getStringExtra("email")!!
+        senha = intent.getStringExtra("senha")!!
 
         nome.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -51,6 +53,9 @@ class Cadastro2 : AppCompatActivity() {
         })
 
         binding.btnProximo.setOnClickListener{
+            print(email)
+            print(senha)
+            print(nome)
             nextActivity()
         }
 
@@ -62,12 +67,11 @@ class Cadastro2 : AppCompatActivity() {
 
     private fun nextActivity(){
         val telaCadastro3 = Intent(this, Cadastro3::class.java)
-//        telaCadastro3.putExtra("email", email)
-//        telaCadastro3.putExtra("senha", senha)
-//        telaCadastro3.putExtra("nome", binding.etNome.text.toString())
-//        telaCadastro3.putExtra("data", binding.etData.text.toString())
-        //TODO: Passar o sexo tbm
+        telaCadastro3.putExtra("email", email)
+        telaCadastro3.putExtra("senha", senha)
+        telaCadastro3.putExtra("nome", binding.etNome.text.toString())
         telaCadastro3.putExtra("data", binding.etData.text.toString())
+        //TODO: Passar o sexo tbm
         startActivity(telaCadastro3)
     }
 

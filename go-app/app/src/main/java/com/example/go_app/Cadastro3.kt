@@ -18,15 +18,20 @@ import retrofit2.create
 class Cadastro3 : AppCompatActivity() {
 
     private lateinit var binding: ActivityCadastro3Binding
-//    val email = intent.getStringExtra("email")
-//    val senha = intent.getStringExtra("senha")
-//    val nome = intent.getStringExtra("nome")
-//    val data = intent.getStringExtra("data")
+    lateinit var email : String
+    lateinit var senha : String
+    lateinit var nome : String
+    lateinit var data : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCadastro3Binding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        email = intent.getStringExtra("email")!!
+        nome = intent.getStringExtra("senha")!!
+        senha = intent.getStringExtra("nome")!!
+        data = intent.getStringExtra("data")!!
 
         binding.btnProximo.setOnClickListener{
             nextActivity()

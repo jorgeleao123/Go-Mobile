@@ -73,8 +73,8 @@ class Cadastro1 : AppCompatActivity() {
     private fun nextActivity(){
         //TODO: mandar para outra activity os dados
         val telaCadastro2 = Intent(this, Cadastro2::class.java)
-//        telaCadastro2.putExtra("email", binding.etEmail.text.toString())
-//        telaCadastro2.putExtra("senha", binding.etSenha.text.toString())
+        telaCadastro2.putExtra("email", binding.etEmail.text.toString())
+        telaCadastro2.putExtra("senha", binding.etSenha.text.toString())
         startActivity(telaCadastro2)
     }
 
