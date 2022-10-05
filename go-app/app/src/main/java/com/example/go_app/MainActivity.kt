@@ -3,7 +3,6 @@ package com.example.go_app
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import com.example.go_app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,13 +14,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnJaTenhoConta.setOnClickListener {
+        binding.llBtnLogin.setOnClickListener {
             goToLogin()
+        }
+
+        binding.llBtnCadastro.setOnClickListener {
+            goToCadastro()
         }
 
     }
 
-    fun goToLogin(){
+    private fun goToLogin(){
+        val telaLogin = Intent(this, Login::class.java)
+        startActivity(telaLogin)
+    }
+
+    private fun goToCadastro(){
         val telaCadastro = Intent(this, Cadastro1::class.java)
         startActivity(telaCadastro)
     }

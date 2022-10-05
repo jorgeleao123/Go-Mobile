@@ -1,7 +1,9 @@
 <resources>
     <!-- global -->
-    <string name="app_name">go-app</string>
+    <string name="app_name">GO</string>
     <string name="btn_proximo">Próximo</string>
+    <string name="btn_anterior">Anterior</string>
+    <string name="btn_entrar">Entrar</string>
 
     <!-- Tela inicial -->
     <string name="ti_titulo">Vamos começar!</string>
@@ -14,14 +16,44 @@
     <string name="ti_quero_cadastrar_subtitulo">Cadastre-se e faça login para continuar.</string>
 
     <!-- Cadastro 1 -->
-    <string name="ca_titluo">Cadastre-se</string>
-    <string name="ca_subtitulo">Faça seu cadastro e veja se o seu motorista possui alguma denuncia publicada aqui.</string>
-    <string name="ca_email">Email</string>
-    <string name="ca_email_hint">Insira seu email</string>
-    <string name="ca_senha">Senha</string>
-    <string name="ca_senha_hint">Insira sua senha</string>
-    <string name="ca_confi_senha">Confirmar senha</string>
-    <string name="ca_confi_senha_hint">Confirme sua senha</string>
+    <string name="ca1_titulo">Cadastre-se</string>
+    <string name="ca1_subtitulo">Faça seu cadastro e veja se o seu motorista possui alguma denuncia publicada aqui.</string>
+    <string name="ca1_email">Email</string>
+    <string name="ca1_email_hint">Insira seu email</string>
+    <string name="ca1_senha">Senha</string>
+    <string name="ca1_senha_hint">Insira sua senha</string>
+    <string name="ca1_confi_senha">Confirmar senha</string>
+    <string name="ca1_confi_senha_hint">Confirme sua senha</string>
+    <string name="ca1_possui_conta">Já possui conta?</string>
+    <string name="ca1_faca_login">Faça login</string>
+
+    <!-- Cadastro 2 -->
+    <string name="ca2_titulo">Sobre você</string>
+    <string name="ca2_subtitulo">Preencha seus dados para ter uma experiencia personalizada.</string>
+    <string name="ca2_nome">Nome</string>
+    <string name="ca2_nome_hint">Insira seu nome</string>
+    <string name="ca2_data">Data de nascimento</string>
+    <string name="ca2_data_hint">dd/mm/aaaa</string>
+    <string name="ca2_sexo">Sexo</string>
+    <string name="ca2_sexo_feminino">Feminino</string>
+    <string name="ca2_sexo_masculino">Masculino</string>
+
+    <!-- Cadastro 3 -->
+    <string name="ca3_titulo">Localização</string>
+    <string name="ca3_subtitulo">Agora precisamos da sua localização para filtrarmos as publicações do seu feed.</string>
+    <string name="ca3_cep">CEP</string>
+    <string name="ca3_cep_hint">Insira seu CEP</string>
+    <string name="ca3_estado">Estado</string>
+    <string name="ca3_estado_hint">Insira seu estado</string>
+    <string name="ca3_cidade">Cidade</string>
+    <string name="ca3_cidade_hint">Insira sua cidade</string>
+
+    <!-- Login -->
+    <string name="lo_titulo">Faça o Login</string>
+    <string name="lo_subtitulo">Preencha seu email e senha e tenha acesso a um feed de denuncias na sua região.</string>
+    <string name="lo_esqueceu_senha">Esqueceu sua senha?</string>
+    <string name="lo_nao_possui">Não possui conta?</string>
+    <string name="lo_registre">Registre-se</string>
 
 
 </resources>
