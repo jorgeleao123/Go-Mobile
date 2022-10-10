@@ -4,6 +4,7 @@
     <string name="btn_proximo">Próximo</string>
     <string name="btn_anterior">Anterior</string>
     <string name="btn_entrar">Entrar</string>
+    <string name="btn_cadastrar">Cadastrar</string>
 
     <!-- Tela inicial -->
     <string name="ti_titulo">Vamos começar!</string>
@@ -37,6 +38,7 @@
     <string name="ca2_sexo">Sexo</string>
     <string name="ca2_sexo_feminino">Feminino</string>
     <string name="ca2_sexo_masculino">Masculino</string>
+    <string name="ca2_sexo_nenhum">Não Identificar</string>
 
     <!-- Cadastro 3 -->
     <string name="ca3_titulo">Localização</string>
@@ -54,6 +56,12 @@
     <string name="lo_esqueceu_senha">Esqueceu sua senha?</string>
     <string name="lo_nao_possui">Não possui conta?</string>
     <string name="lo_registre">Registre-se</string>
+
+    <!-- Termos e condicoes -->
+    <string name="tc_titulo">Termos e condições</string>
+    <string name="tc_subtitulo">Aqui estão os termos e condições de uso do nosso aplicativo. Ao clicar em "Cadastrar" você está de acordo com os termos aqui escritos.</string>
+    <string name="tc_aceite">Declaro que li e aceito os termos e condições de uso</string>
+    <string name="tc_termo">fjadlknfjdsafnlsdjf</string>
 
 
 </resources>

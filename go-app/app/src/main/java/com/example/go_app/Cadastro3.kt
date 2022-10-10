@@ -45,7 +45,9 @@ class Cadastro3 : AppCompatActivity() {
     }
 
     private fun nextActivity(){
-
+        val telaTermos = Intent(this, TelaTermos::class.java)
+        telaTermos.putExtra("", "")
+        startActivity(telaTermos)
     }
 
     private fun previousActivity(){
