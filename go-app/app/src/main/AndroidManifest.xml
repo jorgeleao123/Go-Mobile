@@ -19,6 +19,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+            android:name=".ConfigUsuario"
+            android:exported="true" />
         <activity
             android:name=".Cadastro3"
             android:exported="false">
