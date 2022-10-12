@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import com.example.go_app.databinding.ActivityCadastro1Binding
 
@@ -16,6 +17,10 @@ class Cadastro1 : AppCompatActivity() {
         binding = ActivityCadastro1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var isShowing = false
+
+        binding.btnProximo.isEnabled = false
+
         var email = binding.etEmail
         var senha = binding.etSenha
         var confirmSenha = binding.etConfirmSenha
@@ -25,7 +30,8 @@ class Cadastro1 : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(android.util.Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()){
+                if(android.util.Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches() ||
+                        email.text.toString().isEmpty()){
                     binding.btnProximo.isEnabled = true
                 } else {
                     binding.btnProximo.isEnabled = false
@@ -38,7 +44,7 @@ class Cadastro1 : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(senha.text.length >= 8){
+                if(senha.text.length >= 8 || senha.text.toString().isEmpty()){
                     binding.btnProximo.isEnabled = true
                 } else {
                     binding.btnProximo.isEnabled = false
@@ -68,10 +74,21 @@ class Cadastro1 : AppCompatActivity() {
             goToLogin()
         }
 
+        binding.ivHide.setOnClickListener {
+            if(isShowing){
+                binding.etSenha.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                binding.etConfirmSenha.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                isShowing = false
+            } else {
+                binding.etSenha.inputType = 1
+                binding.etConfirmSenha.inputType = 1
+                isShowing = true
+            }
+        }
+
     }
 
     private fun nextActivity(){
-        //TODO: mandar para outra activity os dados
         val telaCadastro2 = Intent(this, Cadastro2::class.java)
         telaCadastro2.putExtra("email", binding.etEmail.text.toString())
         telaCadastro2.putExtra("senha", binding.etSenha.text.toString())

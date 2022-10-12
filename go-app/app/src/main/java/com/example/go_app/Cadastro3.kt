@@ -22,16 +22,24 @@ class Cadastro3 : AppCompatActivity() {
     lateinit var senha : String
     lateinit var nome : String
     lateinit var data : String
+    lateinit var sexo : String
+    lateinit var estado : String
+    lateinit var cidade : String
+    lateinit var bairro : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCadastro3Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        email = intent.getStringExtra("email")!!
-        nome = intent.getStringExtra("senha")!!
-        senha = intent.getStringExtra("nome")!!
-        data = intent.getStringExtra("data")!!
+        email = intent.getStringExtra("email").toString()
+        nome = intent.getStringExtra("nome").toString()
+        senha = intent.getStringExtra("senha").toString()
+        data = intent.getStringExtra("data").toString()
+        sexo = intent.getStringExtra("sexo").toString()
+        estado = ""
+        cidade = ""
+        bairro = ""
 
         binding.btnProximo.setOnClickListener{
             nextActivity()
@@ -41,12 +49,22 @@ class Cadastro3 : AppCompatActivity() {
             previousActivity()
         }
 
+        binding.ivSearch.setOnClickListener {
+            preencherCampos()
+        }
 
     }
 
     private fun nextActivity(){
         val telaTermos = Intent(this, TelaTermos::class.java)
-        telaTermos.putExtra("", "")
+        telaTermos.putExtra("email", email)
+        telaTermos.putExtra("senha", senha)
+        telaTermos.putExtra("nome", nome)
+        telaTermos.putExtra("data", data)
+        telaTermos.putExtra("sexo", sexo)
+        telaTermos.putExtra("estado", estado)
+        telaTermos.putExtra("cidade", cidade)
+        telaTermos.putExtra("bairro", bairro)
         startActivity(telaTermos)
     }
 
@@ -62,6 +80,9 @@ class Cadastro3 : AppCompatActivity() {
 
         request.getEnderecoByCEP(cep).enqueue(object : Callback<CepResponse>{
             override fun onResponse(call: Call<CepResponse>, response: Response<CepResponse>) {
+                estado = response.body()!!.uf
+                cidade = response.body()!!.localidade
+                bairro = response.body()!!.bairro
                 binding.etEstado.setText(response.body()!!.uf)
                 binding.etCidade.setText(response.body()!!.localidade)
             }

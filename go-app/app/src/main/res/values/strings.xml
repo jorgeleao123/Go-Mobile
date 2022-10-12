@@ -52,7 +52,7 @@
 
     <!-- Login -->
     <string name="lo_titulo">Faça o Login</string>
-    <string name="lo_subtitulo">Preencha seu email e senha e tenha acesso a um feed de denuncias na sua região.</string>
+    <string name="lo_subtitulo">Preencha seu email e senha e tenha acesso a um feed de denúncias na sua região.</string>
     <string name="lo_esqueceu_senha">Esqueceu sua senha?</string>
     <string name="lo_nao_possui">Não possui conta?</string>
     <string name="lo_registre">Registre-se</string>
@@ -60,8 +60,8 @@
     <!-- Termos e condicoes -->
     <string name="tc_titulo">Termos e condições</string>
     <string name="tc_subtitulo">Aqui estão os termos e condições de uso do nosso aplicativo. Ao clicar em "Cadastrar" você está de acordo com os termos aqui escritos.</string>
-    <string name="tc_aceite">Declaro que li e aceito os termos e condições de uso</string>
-    <string name="tc_termo">fjadlknfjdsafnlsdjf</string>
+    <string name="tc_aceite">Declaro que li e aceito os termos e condições de uso.</string>
+    <string name="tc_termo">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</string>
 
 
 </resources>

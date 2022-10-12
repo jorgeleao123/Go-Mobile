@@ -80,26 +80,43 @@
             android:fontFamily="@font/mukta_extrabold"
             android:textSize="15dp" />
 
-        <EditText
-            android:id="@+id/et_password"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:inputType="textPassword"
-            android:hint="@string/ca1_senha_hint"
-            android:fontFamily="@font/mukta_light"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingLeft="10dp"
-            android:background="@color/primary_gray"/>
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="50dp"
+                android:inputType="textPassword"
+                android:hint="@string/ca1_senha_hint"
+                android:fontFamily="@font/mukta_light"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:paddingLeft="10dp"
+                android:background="@color/primary_gray"/>
+
+            <ImageView
+                android:id="@+id/iv_hide"
+                android:padding="10dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@color/primary_gray"
+                android:src="@drawable/hide"/>
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_esqueceuSenha"
+            android:id="@+id/tv_erro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:textAlignment="textEnd"
-            android:text="@string/lo_esqueceu_senha"
+            tools:text="@string/lo_esqueceu_senha"
             android:fontFamily="@font/mukta_semibold"
+            android:textColor="@color/text_red"
             android:textSize="15dp" />
 
     </LinearLayout>
@@ -109,7 +126,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="20dp">
+        android:paddingTop="30dp">
 
         <Button
             android:id="@+id/btn_logar"

@@ -169,23 +169,27 @@
             android:textSize="15dp" />
 
         <RadioGroup
+            android:id="@+id/rg_sexo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
-                android:layout_width="0dp"
+                android:id="@+id/rb_feminino"
+                android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mukta_light"
                 android:text="@string/ca2_sexo_feminino" />
             <RadioButton
-                android:layout_width="0dp"
+                android:id="@+id/rb_masculino"
+                android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mukta_light"
                 android:text="@string/ca2_sexo_masculino" />
             <RadioButton
-                android:layout_width="0dp"
+                android:id="@+id/rb_nenhum"
+                android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mukta_light"

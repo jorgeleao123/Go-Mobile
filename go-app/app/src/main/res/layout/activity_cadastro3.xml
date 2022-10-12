@@ -131,16 +131,34 @@
             android:fontFamily="@font/mukta_extrabold"
             android:textSize="15dp" />
 
-        <EditText
-            android:id="@+id/et_cep"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/primary_gray"
-            android:fontFamily="@font/mukta_light"
-            android:hint="@string/ca3_cep_hint"
-            android:paddingLeft="10dp"
-            android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/et_cep"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="50dp"
+                android:background="@color/primary_gray"
+                android:fontFamily="@font/mukta_light"
+                android:hint="@string/ca3_cep_hint"
+                android:maxLength="8"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:padding="10dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@color/primary_gray"
+                android:src="@drawable/search"/>
+
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="wrap_content"
