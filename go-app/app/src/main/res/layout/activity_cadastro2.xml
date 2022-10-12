@@ -153,6 +153,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="@string/ca2_data_hint"
+            android:inputType="date"
             android:fontFamily="@font/mukta_light"
             android:textSize="15dp"
             android:textColor="@color/black"
@@ -167,16 +168,33 @@
             android:fontFamily="@font/mukta_extrabold"
             android:textSize="15dp" />
 
-        <EditText
-
+        <RadioGroup
+            android:id="@+id/rg_sexo"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/ca2_sexo_feminino"
-            android:fontFamily="@font/mukta_light"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingLeft="10dp"
-            android:background="@color/primary_gray"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rb_feminino"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mukta_light"
+                android:text="@string/ca2_sexo_feminino" />
+            <RadioButton
+                android:id="@+id/rb_masculino"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mukta_light"
+                android:text="@string/ca2_sexo_masculino" />
+            <RadioButton
+                android:id="@+id/rb_nenhum"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mukta_light"
+                android:text="@string/ca2_sexo_nenhum" />
+        </RadioGroup>
 
     </LinearLayout>
 
