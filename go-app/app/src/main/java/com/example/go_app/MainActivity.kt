@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun goToCadastro(){
-        val telaCadastro = Intent(this, Cadastro1::class.java)
-//        val telaCadastro = Intent(this, ConfigUsuario::class.java)
+//        val telaCadastro = Intent(this, Cadastro1::class.java)
+        val telaCadastro = Intent(this, ItensSalvos::class.java)
         startActivity(telaCadastro)
     }
 }
