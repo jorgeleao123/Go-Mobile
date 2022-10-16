@@ -11,7 +11,7 @@ object Rest {
 
     //Produção (nuvem)
     // Emulador
-//    val baseUrl = "http://10.0.2.2:3000/"
+//    val baseUrl = "http://44.210.60.105:8080/"
 
     // Celular
     // No linux hostname -I
