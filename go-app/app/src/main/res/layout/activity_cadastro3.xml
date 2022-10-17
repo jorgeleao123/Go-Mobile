@@ -92,142 +92,155 @@
 
     </LinearLayout>
 
-    <!-- Localização -->
-    <LinearLayout
-        android:id="@+id/ll_vamos_comecar"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:paddingBottom="5sp"
-            android:fontFamily="@font/mukta_extrabold"
-            android:textColor="@color/title_color"
-            android:text="@string/ca3_titulo"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:fontFamily="@font/mukta_light"
-            android:text="@string/ca3_subtitulo"/>
-
-    </LinearLayout>
-
-    <!-- Formulário -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/ca3_cep"
-            android:fontFamily="@font/mukta_extrabold"
-            android:textSize="15dp" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/et_cep"
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:layout_height="50dp"
-                android:background="@color/primary_gray"
-                android:fontFamily="@font/mukta_light"
-                android:hint="@string/ca3_cep_hint"
-                android:maxLength="8"
-                android:paddingLeft="10dp"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
+            <!-- Localização -->
+            <LinearLayout
+                android:id="@+id/ll_vamos_comecar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/iv_search"
-                android:padding="10dp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:background="@color/primary_gray"
-                android:src="@drawable/search"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:paddingBottom="5sp"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:textColor="@color/title_color"
+                    android:text="@string/ca3_titulo"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/mukta_light"
+                    android:text="@string/ca3_subtitulo"/>
+
+            </LinearLayout>
+
+            <!-- Formulário -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/ca3_cep"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/et_cep"
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="50dp"
+                        android:background="@color/primary_gray"
+                        android:fontFamily="@font/mukta_light"
+                        android:hint="@string/ca3_cep_hint"
+                        android:maxLength="8"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:id="@+id/iv_search"
+                        android:padding="10dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:background="@color/primary_gray"
+                        android:src="@drawable/search"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/ca3_estado"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/et_estado"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/ca3_estado_hint"
+                    android:fontFamily="@font/mukta_light"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:background="@color/primary_gray"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/ca3_cidade"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/et_cidade"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/ca3_cidade_hint"
+                    android:fontFamily="@font/mukta_light"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:background="@color/primary_gray"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <Button
+                    android:id="@+id/btn_anterior"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="60dp"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="@color/text_blue"
+                    android:fontFamily="@font/mukta_semibold"
+                    android:text="@string/btn_anterior"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_proximo"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/text_blue"
+                    android:fontFamily="@font/mukta_semibold"
+                    android:text="@string/btn_proximo"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/ca3_estado"
-            android:fontFamily="@font/mukta_extrabold"
-            android:textSize="15dp" />
-
-        <EditText
-            android:id="@+id/et_estado"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/ca3_estado_hint"
-            android:fontFamily="@font/mukta_light"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingLeft="10dp"
-            android:background="@color/primary_gray"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/ca3_cidade"
-            android:fontFamily="@font/mukta_extrabold"
-            android:textSize="15dp" />
-
-        <EditText
-            android:id="@+id/et_cidade"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/ca3_cidade_hint"
-            android:fontFamily="@font/mukta_light"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingLeft="10dp"
-            android:background="@color/primary_gray"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="20dp">
-
-        <Button
-            android:id="@+id/btn_anterior"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="60dp"
-            android:layout_marginRight="5dp"
-            android:backgroundTint="@color/text_blue"
-            android:fontFamily="@font/mukta_semibold"
-            android:text="@string/btn_anterior"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn_proximo"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/text_blue"
-            android:fontFamily="@font/mukta_semibold"
-            android:text="@string/btn_proximo"
-            android:textAllCaps="false" />
-
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

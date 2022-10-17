@@ -3,9 +3,6 @@ package com.example.go_app
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.View
 import com.example.go_app.databinding.ActivityCadastro3Binding
 import com.example.go_app.models.CepResponse
 import com.example.go_app.rest.RestCep
@@ -13,7 +10,6 @@ import com.example.go_app.services.Cep
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.create
 
 class Cadastro3 : AppCompatActivity() {
 

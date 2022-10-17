@@ -90,142 +90,157 @@
 
     </LinearLayout>
 
-    <!-- Sobre você -->
-    <LinearLayout
-        android:id="@+id/ll_vamos_comecar"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:paddingBottom="5sp"
-            android:fontFamily="@font/mukta_extrabold"
-            android:textColor="@color/title_color"
-            android:text="@string/ca2_titulo"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:fontFamily="@font/mukta_light"
-            android:text="@string/ca2_subtitulo"/>
-
-    </LinearLayout>
-
-    <!-- Formulário -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/ca2_nome"
-            android:fontFamily="@font/mukta_extrabold"
-            android:textSize="15dp" />
-
-        <EditText
-            android:id="@+id/et_nome"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/primary_gray"
-            android:fontFamily="@font/mukta_light"
-            android:hint="@string/ca2_nome_hint"
-            android:paddingLeft="10dp"
-            android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/ca2_data"
-            android:fontFamily="@font/mukta_extrabold"
-            android:textSize="15dp" />
-
-        <EditText
-            android:id="@+id/et_data"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/ca2_data_hint"
-            android:inputType="date"
-            android:fontFamily="@font/mukta_light"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingLeft="10dp"
-            android:background="@color/primary_gray"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/ca2_sexo"
-            android:fontFamily="@font/mukta_extrabold"
-            android:textSize="15dp" />
-
-        <RadioGroup
-            android:id="@+id/rg_sexo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/rb_feminino"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
+            <!-- Sobre você -->
+            <LinearLayout
+                android:id="@+id/ll_vamos_comecar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/mukta_light"
-                android:text="@string/ca2_sexo_feminino" />
-            <RadioButton
-                android:id="@+id/rb_masculino"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:paddingBottom="5sp"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:textColor="@color/title_color"
+                    android:text="@string/ca2_titulo"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/mukta_light"
+                    android:text="@string/ca2_subtitulo"/>
+
+            </LinearLayout>
+
+            <!-- Formulário -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/mukta_light"
-                android:text="@string/ca2_sexo_masculino" />
-            <RadioButton
-                android:id="@+id/rb_nenhum"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/ca2_nome"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/et_nome"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/primary_gray"
+                    android:fontFamily="@font/mukta_light"
+                    android:hint="@string/ca2_nome_hint"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/ca2_data"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/et_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/ca2_data_hint"
+                    android:inputType="date"
+                    android:fontFamily="@font/mukta_light"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:background="@color/primary_gray"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/ca2_sexo"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:textSize="15dp" />
+
+                <RadioGroup
+                    android:id="@+id/rg_sexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/rb_feminino"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mukta_light"
+                        android:text="@string/ca2_sexo_feminino" />
+                    <RadioButton
+                        android:id="@+id/rb_masculino"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mukta_light"
+                        android:text="@string/ca2_sexo_masculino" />
+                    <RadioButton
+                        android:id="@+id/rb_nenhum"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mukta_light"
+                        android:text="@string/ca2_sexo_nenhum" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/mukta_light"
-                android:text="@string/ca2_sexo_nenhum" />
-        </RadioGroup>
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
 
-    </LinearLayout>
+                <Button
+                    android:id="@+id/btn_anterior"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="60dp"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="@color/text_blue"
+                    android:fontFamily="@font/mukta_semibold"
+                    android:text="@string/btn_anterior"
+                    android:textAllCaps="false" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="20dp">
+                <Button
+                    android:id="@+id/btn_proximo"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/text_blue"
+                    android:fontFamily="@font/mukta_semibold"
+                    android:text="@string/btn_proximo"
+                    android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/btn_anterior"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="60dp"
-            android:layout_marginRight="5dp"
-            android:backgroundTint="@color/text_blue"
-            android:fontFamily="@font/mukta_semibold"
-            android:text="@string/btn_anterior"
-            android:textAllCaps="false" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_proximo"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/text_blue"
-            android:fontFamily="@font/mukta_semibold"
-            android:text="@string/btn_proximo"
-            android:textAllCaps="false" />
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </LinearLayout>
