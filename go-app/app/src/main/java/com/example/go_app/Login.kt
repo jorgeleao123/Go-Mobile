@@ -83,7 +83,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun entrarHome(){
-        val telaHome = Intent(this, Cadastro3::class.java)
+        val telaHome = Intent(this, ItensSalvos::class.java)
         startActivity(telaHome)
     }
 
