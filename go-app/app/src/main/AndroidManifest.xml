@@ -13,6 +13,20 @@
         android:theme="@style/Theme.Goapp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EditarPerfil"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".NovaDenuncia"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ItensSalvos"
             android:exported="true" />
         <activity
@@ -22,8 +36,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-            android:name=".ConfigUsuario"
-            android:exported="true" />
         <activity
             android:name=".Cadastro3"
             android:exported="false">
