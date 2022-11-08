@@ -17,7 +17,8 @@ class Cadastro1 : AppCompatActivity() {
         binding = ActivityCadastro1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var isShowing = false
+        var isShowing1 = false
+        var isShowing2 = false
 
         binding.btnProximo.isEnabled = false
 
@@ -75,14 +76,22 @@ class Cadastro1 : AppCompatActivity() {
         }
 
         binding.ivHide.setOnClickListener {
-            if(isShowing){
+            if(isShowing1){
                 binding.etSenha.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                binding.etConfirmSenha.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                isShowing = false
+                isShowing1 = false
             } else {
                 binding.etSenha.inputType = 1
+                isShowing1 = true
+            }
+        }
+
+        binding.ivHide2.setOnClickListener {
+            if(isShowing2){
+                binding.etConfirmSenha.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                isShowing2 = false
+            } else {
                 binding.etConfirmSenha.inputType = 1
-                isShowing = true
+                isShowing2 = true
             }
         }
 

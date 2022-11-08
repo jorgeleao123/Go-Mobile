@@ -6,89 +6,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="25dp"
-    tools:context=".Cadastro3">
+    tools:context=".EditarPerfil">
 
-    <!-- Logo -->
     <LinearLayout
-        android:id="@+id/ll_logo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="20dp">
+        android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo_go_1"/>
-
-    </LinearLayout>
-
-    <!-- Index -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/primary_gray"
-        android:orientation="horizontal"
-        android:paddingVertical="5dp">
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/arrow_left_icon" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:fontFamily="@font/mukta_regular"
-            android:textSize="20dp"
-            android:textColor="@color/text_blue"
-            android:textAlignment="center"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="2"
-            android:fontFamily="@font/mukta_regular"
-            android:textSize="20dp"
-            android:textColor="@color/text_blue"
-
-            android:textAlignment="center"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="3"
-            android:fontFamily="@font/mukta_regular"
-            android:textSize="20dp"
-            android:textColor="@color/text_blue"
-
-            android:textAlignment="center"/>
-
-    </LinearLayout>
-
-    <!-- Linha debaixo do index -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="15dp">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="2dp"
-            android:background="@color/text_blue"/>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="2dp"
-            android:background="@color/text_blue"/>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="2dp"
-            android:background="@color/text_blue"/>
-
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:text="Editar perfil"
+            android:fontFamily="@font/mukta_bold"
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 
@@ -101,36 +37,32 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <!-- Localização -->
-            <LinearLayout
-                android:id="@+id/ll_vamos_comecar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="30sp"
-                    android:paddingBottom="5sp"
-                    android:fontFamily="@font/mukta_extrabold"
-                    android:textColor="@color/title_color"
-                    android:text="@string/ca3_titulo"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/mukta_light"
-                    android:text="@string/ca3_subtitulo"/>
-
-            </LinearLayout>
 
             <!-- Formulário -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Nome"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:textSize="15dp" />
+
+
+                <EditText
+                    android:id="@+id/et_nome"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/primary_gray"
+                    android:fontFamily="@font/mukta_light"
+                    android:hint="Insira seu nome"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -159,7 +91,7 @@
 
                     <ImageView
                         android:id="@+id/iv_search"
-                        android:padding="15dp"
+                        android:padding="10dp"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -168,46 +100,87 @@
 
                 </LinearLayout>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/ca1_email"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/primary_gray"
+                    android:fontFamily="@font/mukta_light"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/ca1_email_hint"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="@string/ca3_estado"
+                    android:text="@string/ca1_senha"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/et_senha"
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="50dp"
+                        android:hint="@string/ca1_senha_hint"
+                        android:inputType="textPassword"
+                        android:fontFamily="@font/mukta_light"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"
+                        android:paddingLeft="10dp"
+                        android:background="@color/primary_gray"/>
+
+                    <ImageView
+                        android:id="@+id/iv_hide"
+                        android:padding="10dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:background="@color/primary_gray"
+                        android:src="@drawable/hide"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/ca1_confi_senha"
                     android:fontFamily="@font/mukta_extrabold"
                     android:textSize="15dp" />
 
                 <EditText
-                    android:id="@+id/et_estado"
+                    android:id="@+id/et_confirmSenha"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="@string/ca3_estado_hint"
+                    android:hint="@string/ca1_confi_senha_hint"
+                    android:inputType="textPassword"
                     android:fontFamily="@font/mukta_light"
                     android:textSize="15dp"
                     android:textColor="@color/black"
                     android:paddingLeft="10dp"
                     android:background="@color/primary_gray"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/ca3_cidade"
-                    android:fontFamily="@font/mukta_extrabold"
-                    android:textSize="15dp" />
 
-                <EditText
-                    android:id="@+id/et_cidade"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="@string/ca3_cidade_hint"
-                    android:fontFamily="@font/mukta_light"
-                    android:textSize="15dp"
-                    android:textColor="@color/black"
-                    android:paddingLeft="10dp"
-                    android:background="@color/primary_gray"/>
 
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -216,25 +189,14 @@
                 android:paddingTop="20dp">
 
                 <Button
-                    android:id="@+id/btn_anterior"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="60dp"
-                    android:layout_marginRight="5dp"
-                    android:backgroundTint="@color/text_blue"
-                    android:fontFamily="@font/mukta_semibold"
-                    android:text="@string/btn_anterior"
-                    android:textAllCaps="false" />
-
-                <Button
-                    android:id="@+id/btn_proximo"
+                    android:id="@+id/btn_salvar"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/text_blue"
                     android:fontFamily="@font/mukta_semibold"
-                    android:text="@string/btn_proximo"
+                    android:text="Salvar"
                     android:textAllCaps="false" />
 
             </LinearLayout>
