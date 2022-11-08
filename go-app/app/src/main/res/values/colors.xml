@@ -13,5 +13,8 @@
     <color name="text_blue">#24729E</color>
     <color name="text_blue_light">#219DA5</color>
     <color name="text_red">#C51313</color>
-
+    <color name="nav_color">#1B1A1A</color>
+    <color name="link_nav_color">#6EB7ED</color>
+    <color name="text_color">#5A5A5A</color>
+    <color name="card_search">#F9F9F9</color>
 </resources>
