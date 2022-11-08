@@ -6,7 +6,7 @@ Creators
  - Maurício Atsushi Ishikawa - 
  - Pedro Aragão -
  - Rafaella Kimberlly 
- - Tais Firmino - 
+ - Tais Fermino - 
  
  
 

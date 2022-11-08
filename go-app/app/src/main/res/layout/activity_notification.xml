@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Notification"
+    android:paddingTop="20dp"
+    android:paddingHorizontal="20dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_vectorseta"/>
+
+        <TextView
+            android:id="@+id/search_text_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:fontFamily="@font/mukta_semibold"
+            android:text="@string/notification_title"
+            android:textColor="@color/title_color"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

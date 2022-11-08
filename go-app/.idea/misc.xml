@@ -4,6 +4,29 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/drawable/ic_group.xml" value="0.15" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/drawable/ic_groupsettings.xml" value="0.1" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/drawable/ic_iwwa_alertalert.xml" value="0.3828125" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/drawable/ic_vectorpublication.xml" value="0.1" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/drawable/ic_vectorsave.xml" value="0.1" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/drawable/ic_vectorsearch.xml" value="0.1" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/drawable/vector__2_.xml" value="0.221875" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/activity_cadastro1.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/activity_cadastro2.xml" value="0.1" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/activity_cadastro3.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/activity_config_usuario.xml" value="0.67" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/activity_index.xml" value="0.33" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/activity_itens_salvos.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/activity_login.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/activity_notification.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/activity_perfil.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/activity_search.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/activity_tela_termos.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/card_pub.xml" value="0.67" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/fragment_search.xml" value="0.1" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/layout/notifications_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Tais/OneDrive - Etec Centro Paula Souza/Documentos/1 - BandTec/4ADSB/PI/Go-Mobile/go-app/app/src/main/res/menu/menu.xml" value="0.2" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.2025" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.195" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.195" />
@@ -11,8 +34,9 @@
         <entry key="app/src/main/res/font/mukta.xml" value="0.225" />
         <entry key="app/src/main/res/layout/activity_cadastro1.xml" value="0.19479166666666667" />
         <entry key="app/src/main/res/layout/activity_config_usuario.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_itens_salvos.xml" value="0.12182971014492754" />
+        <entry key="app/src/main/res/layout/activity_itens_salvos.xml" value="0.2685624012638231" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_perfil.xml" value="0.33" />
         <entry key="app/src/main/res/layout/card_pub.xml" value="0.22" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
