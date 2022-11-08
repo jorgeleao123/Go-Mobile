@@ -72,7 +72,8 @@
         android:layout_marginEnd="8dp"
         android:theme="@style/SCBSwitch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <View
         android:id="@+id/view2"
@@ -106,4 +107,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2"
         app:strokeColor="#FF0000" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

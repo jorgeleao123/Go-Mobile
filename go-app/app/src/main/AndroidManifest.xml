@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Goapp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Search"
+            android:exported="false" />
+        <activity
+            android:name=".Notification"
+            android:exported="false" />
+        <activity
+            android:name=".IndexActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Perfil"
+            android:exported="true" />
+        <activity
             android:name=".ItensSalvos"
             android:exported="true" />
         <activity
@@ -22,8 +34,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-            android:name=".ConfigUsuario"
-            android:exported="true" />
         <activity
             android:name=".Cadastro3"
             android:exported="false">
