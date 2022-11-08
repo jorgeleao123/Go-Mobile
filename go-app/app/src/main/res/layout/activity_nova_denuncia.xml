@@ -149,7 +149,7 @@
 
                     <ImageView
                         android:id="@+id/iv_search"
-                        android:padding="10dp"
+                        android:padding="15dp"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -197,6 +197,15 @@
                 android:textColor="@color/black"
                 android:paddingLeft="10dp"
                 android:background="@color/primary_gray"/>
+
+            <ImageView
+                android:id="@+id/iv_imagem"
+                android:paddingVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginVertical="20dp"
+                android:background="@color/primary_gray"
+                android:src="@drawable/select_image_icon"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
