@@ -9,8 +9,7 @@ import com.example.go_app.R
 
 class CustomAdapter(
 //    private val dataSet: Array<String>
-    ) :
-    RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+    ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 //        val textView: TextView
