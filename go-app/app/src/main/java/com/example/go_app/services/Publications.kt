@@ -1,44 +1,47 @@
 package com.example.go_app.services
 
+import com.example.go_app.models.ComplaintsResponse
 import com.example.go_app.models.UserRequest
 import com.example.go_app.models.UserResponse
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface Publications {
-
+    
     @POST("/complaints/{userId}")
     fun postPublication(
+        @Path("userId") userId : Int,
         @Body body: UserRequest
-    ) : Call<UserResponse>
+    ) : Call<List<ComplaintsResponse>>
+
+    @GET("/complaints/Id/{userId}")
+    fun postPublication(
+        @Path("userId") userId : Int
+    ) : Call<List<ComplaintsResponse>>
 
     @GET("/complaints/cep")
     fun getPublicationsByCep(
-        @Header header: Header
-    ) : Call<UserResponse>
+        @Header("cep") cep : String
+    ) : Call<List<ComplaintsResponse>>
 
-    @GET("/complaints/{city}")
+    @GET("/complaints/city")
     fun getPublicationsByCity(
-        @Body body: UserRequest
-    ) : Call<UserResponse>
+        @Header("city") city : String
+    ) : Call<List<ComplaintsResponse>>
 
-    @GET("/complaints/{city}")
-    fun getPublicationsByCity(
-        @Body body: UserRequest
-    ) : Call<UserResponse>
+    @GET("/complaints/district")
+    fun getPublicationsByDistrict(
+        @Header("district") district : String
+    ) : Call<List<ComplaintsResponse>>
 
-    @GET("/complaints/{city}")
-    fun getPublicationsByCity(
-        @Body body: UserRequest
-    ) : Call<UserResponse>
+    @GET("/complaints/state")
+    fun getPublicationsByState(
+        @Header("state") state : String
+    ) : Call<List<ComplaintsResponse>>
 
-    @GET("/complaints/{city}")
-    fun getPublicationsByCity(
-        @Body body: UserRequest
-    ) : Call<UserResponse>
-
+    @GET("/complaints/license/{license}")
+    fun getPublicationsByLicense(
+        @Path("license") license : String
+    ) : Call<List<ComplaintsResponse>>
 
 }
