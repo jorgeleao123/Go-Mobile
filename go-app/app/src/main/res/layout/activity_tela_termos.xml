@@ -72,10 +72,10 @@
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="@string/btn_cadastrar"
         android:textAllCaps="false"
+        android:fontFamily="@font/mukta_semibold"
         android:backgroundTint="@color/text_blue"/>
-
 
 </LinearLayout>
