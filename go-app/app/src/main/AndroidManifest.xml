@@ -35,6 +35,7 @@
             android:exported="false" />
         <activity
             android:name=".IndexActivity"
+            android:name=".Publications"
             android:exported="false" />
         <activity
             android:name=".Perfil"
