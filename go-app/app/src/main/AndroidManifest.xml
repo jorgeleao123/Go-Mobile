@@ -27,7 +27,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
+        <activity
             android:name=".Search"
             android:exported="false" />
         <activity
@@ -35,7 +35,6 @@
             android:exported="false" />
         <activity
             android:name=".IndexActivity"
-            android:name=".Publications"
             android:exported="false" />
         <activity
             android:name=".Perfil"
