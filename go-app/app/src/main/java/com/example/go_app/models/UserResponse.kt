@@ -8,9 +8,9 @@ data class UserResponse(
     val email: String,
     val role: String,
     val genre: String,
-    val colorProfile: String,
-    val colorMenu: String,
-    val birthDate: String,
+//    val colorProfile: String,
+//    val colorMenu: String,
+//    val birthDate: String,
     val status: String,
     val searchCounter: Int,
     val postCounter: Int

@@ -70,7 +70,8 @@ class Login : AppCompatActivity() {
                         MODE_PRIVATE
                     )
                     val editor = pasta.edit()
-                    editor.putString("", response.body()?.name)
+                    editor.putString("idLogado", response.body()?.id.toString())
+                    editor.commit()
                     entrarHome()
                 }
             }
