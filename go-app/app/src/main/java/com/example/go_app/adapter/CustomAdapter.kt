@@ -9,7 +9,7 @@ import com.example.go_app.R
 import com.example.go_app.models.ComplaintsResponse
 
 class CustomAdapter(
-//    private val dataSet: Array<ComplaintsResponse>
+    private val dataSet: Array<ComplaintsResponse>
     ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
