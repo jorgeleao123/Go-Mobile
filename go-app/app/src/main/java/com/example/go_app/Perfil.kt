@@ -21,38 +21,38 @@ class Perfil : AppCompatActivity() {
         binding = ActivityPerfilBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         this.setRecyclerView()
-        this.getUserRegisters()
+//        this.getUserRegisters()
     }
 
     fun setRecyclerView() {
         recyclerView = findViewById(R.id.listaItem)
         setContentView(binding.root)
         //configurar adapter
-        val adapter = CustomAdapter()
+//        val adapter = CustomAdapter()
         //configurar RecyclerView
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         recyclerView?.layoutManager = layoutManager
         recyclerView?.setHasFixedSize(true)
-        recyclerView?.adapter = adapter
+//        recyclerView?.adapter = adapter
     }
 
-    fun getUserRegisters() {
-        val request = Rest.getInstance().create(ComplaintSavedController::class.java)
-        val pasta = getSharedPreferences("CREDENCIAIS", MODE_PRIVATE)
-        val id = pasta.getString("idLogado","")
-        request.getComplaintSave(id!!.toInt()).enqueue(object : Callback<List<ComplaintsResponse>> {
-            override fun onResponse(
-                call: Call<ComplaintsResponse>,
-                response: Response<ComplaintsResponse>
-            ) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onFailure(call: Call<ComplaintsResponse>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-        })
-
-    }
+//    fun getUserRegisters() {
+//        val request = Rest.getInstance().create(ComplaintSavedController::class.java)
+//        val pasta = getSharedPreferences("CREDENCIAIS", MODE_PRIVATE)
+//        val id = pasta.getString("idLogado","")
+//        request.getComplaintSave(id!!.toInt()).enqueue(object : Callback<List<ComplaintsResponse>> {
+//            override fun onResponse(
+//                call: Call<ComplaintsResponse>,
+//                response: Response<ComplaintsResponse>
+//            ) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onFailure(call: Call<ComplaintsResponse>, t: Throwable) {
+//                TODO("Not yet implemented")
+//            }
+//        })
+//
+//    }
 
 }
