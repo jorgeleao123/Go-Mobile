@@ -1,58 +1,90 @@
 package com.example.go_app
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.go_app.adapter.CustomAdapter
-import com.example.go_app.databinding.ActivityPerfilBinding
 import com.example.go_app.models.ComplaintsResponse
 import com.example.go_app.rest.Rest
-import com.example.go_app.services.ComplaintSavedController
+import com.example.go_app.services.Publications
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class Perfil : AppCompatActivity() {
-    private lateinit var binding: ActivityPerfilBinding
     var recyclerView: RecyclerView? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityPerfilBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        this.setRecyclerView()
-//        this.getUserRegisters()
-    }
-
-    fun setRecyclerView() {
+        setContentView(R.layout.activity_perfil)
         recyclerView = findViewById(R.id.listaItem)
-        setContentView(binding.root)
-        //configurar adapter
-//        val adapter = CustomAdapter()
+
         //configurar RecyclerView
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         recyclerView?.layoutManager = layoutManager
         recyclerView?.setHasFixedSize(true)
-//        recyclerView?.adapter = adapter
+        val pasta = getSharedPreferences(
+            "CREDENCIAIS",
+            MODE_PRIVATE
+        )
+
+        val id = pasta.getString("idLogado", "")
+        val cidade = pasta.getString("cidadeLogado", "")
+        val buscasFeitas = pasta.getString("buscasFeitas", "")
+        val nome = pasta.getString("nomeLogado", "")
+
+        var nomeTela: TextView? = null
+        var bfTela: TextView? = null
+        var cidadeTela: TextView? = null
+        var inicial: TextView? = null
+
+        nomeTela = findViewById(R.id.textView14)
+        bfTela = findViewById(R.id.textView16)
+        inicial = findViewById(R.id.tv_valor)
+        cidadeTela = findViewById(R.id.textView15)
+
+
+        bfTela.text = buscasFeitas
+        nomeTela.text = nome
+        cidadeTela.text = cidade
+        inicial.text = nome!!.subSequence(0, 1)
+
+
+        if (id != null) {
+            getMovies(id.toInt())
+        }
     }
 
-//    fun getUserRegisters() {
-//        val request = Rest.getInstance().create(ComplaintSavedController::class.java)
-//        val pasta = getSharedPreferences("CREDENCIAIS", MODE_PRIVATE)
-//        val id = pasta.getString("idLogado","")
-//        request.getComplaintSave(id!!.toInt()).enqueue(object : Callback<List<ComplaintsResponse>> {
-//            override fun onResponse(
-//                call: Call<ComplaintsResponse>,
-//                response: Response<ComplaintsResponse>
-//            ) {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onFailure(call: Call<ComplaintsResponse>, t: Throwable) {
-//                TODO("Not yet implemented")
-//            }
-//        })
-//
-//    }
+
+    private fun getMovies(id: Int) {
+        val request = Rest.getInstance().create(Publications::class.java)
+
+        request.getPublicationUser(id).enqueue(
+            object : Callback<List<ComplaintsResponse>> {
+                override fun onResponse(
+                    call: Call<List<ComplaintsResponse>>,
+                    response: Response<List<ComplaintsResponse>>
+                ) {
+                    if (response.code() == 404) {
+                        println("não foi")
+                    } else {
+                        println("aqui")
+                        var totalPubli: TextView? = null
+                        totalPubli = findViewById(R.id.textView17)
+                        totalPubli.text = response.body()!!.size.toString()
+                        val adapter = CustomAdapter(response.body()!!)
+                        recyclerView?.adapter = adapter
+                    }
+
+                }
+
+                override fun onFailure(call: Call<List<ComplaintsResponse>>, t: Throwable) {
+                    println("não foi")
+                }
+
+            }
+        )
+    }
 
 }

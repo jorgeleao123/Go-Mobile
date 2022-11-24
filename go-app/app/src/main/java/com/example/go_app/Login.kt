@@ -72,6 +72,8 @@ class Login : AppCompatActivity() {
                     editor.commit()
                     editor.putString("nomeLogado", response.body()?.name.toString())
                     editor.commit()
+                    editor.putString("buscasFeitas", response.body()?.searchCounter.toString())
+                    editor.commit()
                     entrarHome()
                 }
             }

@@ -1,6 +1,8 @@
 package com.example.go_app
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,10 +19,12 @@ import retrofit2.Response
 
 class IndexActivity : AppCompatActivity() {
     var recyclerView: RecyclerView? = null
+    var btnPerfil: FrameLayout? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_index)
         recyclerView = findViewById(R.id.index_list_publication)
+        btnPerfil = findViewById(R.id.index_profile)
 
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         recyclerView?.layoutManager = layoutManager
@@ -29,7 +33,10 @@ class IndexActivity : AppCompatActivity() {
             "CREDENCIAIS",
             MODE_PRIVATE
         )
-
+        btnPerfil!!.setOnClickListener {
+            val telaPerfil = Intent(this, Perfil::class.java)
+            startActivity(telaPerfil)
+        }
         val id = pasta.getString("idLogado", "")
         val nome = pasta.getString("nomeLogado", "")
         if (id != null) {
@@ -82,9 +89,20 @@ class IndexActivity : AppCompatActivity() {
                     if (response.code() == 404) {
                         println("não foi")
                     } else {
+                        val pasta = getSharedPreferences(
+                            "CREDENCIAIS",
+                            MODE_PRIVATE
+                        )
+                        val editor = pasta.edit()
+                        editor.putString(
+                            "cidadeLogado",
+                            "${response.body()!![0].city}, ${response.body()!![0].district}"
+                        )
+                        editor.commit()
                         var cidade: TextView? = null
                         cidade = findViewById(R.id.index_text_city)
-                        cidade.text = "${response.body()!![0].city}, ${response.body()!![0].district}"
+                        cidade.text =
+                            "${response.body()!![0].city}, ${response.body()!![0].district}"
                         getMovies(response.body()!![0].city)
                     }
 

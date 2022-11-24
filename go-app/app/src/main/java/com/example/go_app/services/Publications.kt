@@ -14,8 +14,13 @@ interface Publications {
         @Body body: UserRequest
     ) : Call<List<ComplaintsResponse>>
 
-    @GET("/complaints/Id/{userId}")
-    fun postPublication(
+    @GET("/complaints/Id/{complaintId}")
+    fun getPublication(
+        @Path("complaintId") userId : Int
+    ) : Call<List<ComplaintsResponse>>
+
+    @GET("/complaints/user/{userId}")
+    fun getPublicationUser(
         @Path("userId") userId : Int
     ) : Call<List<ComplaintsResponse>>
 
