@@ -11,6 +11,6 @@ interface Address {
     @GET("/addresses/users/{userId}")
     fun getUserAddressById(
         @Path("userId") userId: Int
-    ) : Call<AddressResponse>
+    ) : Call<List<AddressResponse>>
 
 }

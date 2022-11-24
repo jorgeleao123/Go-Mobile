@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.go_app.adapter.CustomAdapter
+//import com.example.go_app.adapter.CustomAdapter
 
 class Search : AppCompatActivity() {
     var recyclerView: RecyclerView? = null
@@ -12,10 +12,10 @@ class Search : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        recyclerView = findViewById(R.id.recyclerView)
+//        recyclerView = findViewById(R.id.recyclerView)
 
         //configurar adapter
-        val adapter = CustomAdapter()
+//        val adapter = CustomAdapter()
 
         //configurar RecyclerView
 
@@ -23,6 +23,6 @@ class Search : AppCompatActivity() {
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         recyclerView?.layoutManager = layoutManager
         recyclerView?.setHasFixedSize(true)
-        recyclerView?.adapter = adapter
+//        recyclerView?.adapter = adapter
     }
 }

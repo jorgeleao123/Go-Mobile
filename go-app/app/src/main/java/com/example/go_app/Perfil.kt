@@ -14,7 +14,7 @@ class Perfil : AppCompatActivity() {
         recyclerView = findViewById(R.id.listaItem)
 
         //configurar adapter
-        val adapter = CustomAdapter()
+//        val adapter = CustomAdapter()
 
         //configurar RecyclerView
 
@@ -22,6 +22,6 @@ class Perfil : AppCompatActivity() {
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         recyclerView?.layoutManager = layoutManager
         recyclerView?.setHasFixedSize(true)
-        recyclerView?.adapter = adapter
+//        recyclerView?.adapter = adapter
     }
 }

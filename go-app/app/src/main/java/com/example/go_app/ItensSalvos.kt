@@ -19,16 +19,10 @@ import retrofit2.Response
         setContentView(R.layout.activity_itens_salvos)
         recyclerView = findViewById(R.id.recyclerView)
 
-        //configurar adapter
-        val adapter = CustomAdapter()
-
-        //configurar RecyclerView
-
         //configurar RecyclerView
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         recyclerView?.layoutManager = layoutManager
         recyclerView?.setHasFixedSize(true)
-        recyclerView?.adapter = adapter
         val pasta = getSharedPreferences(
             "CREDENCIAIS",
             MODE_PRIVATE
@@ -41,7 +35,6 @@ import retrofit2.Response
     }
 
         private fun getMovies(id: Int){
-            val listMovies: MutableList<List<ComplaintsResponse>> = mutableListOf()
             val request = Rest.getInstance().create(ComplaintSavedController::class.java)
 
             request.getComplaintSave(id).enqueue(
@@ -54,7 +47,8 @@ import retrofit2.Response
                             println("não foi")
                         }else{
                             println("aqui")
-                            listMovies.add(response.body()!!)
+                            val adapter = CustomAdapter(response.body()!!)
+                            recyclerView?.adapter = adapter
                         }
 
                     }
