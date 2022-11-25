@@ -70,7 +70,7 @@ class Cadastro2 : AppCompatActivity() {
 
         }
         binding.rbNenhum.setOnClickListener {
-            sexo = ""
+            sexo = "0"
 
         }
 

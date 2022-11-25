@@ -31,7 +31,14 @@ class NovaDenuncia : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-            binding.ivImagem.setImageURI(data?.data) // handle chosen image
+            val uri = data?.data!!
+            //TODO: Tratar data nula depois
+            binding.ivImagem.setImageURI(uri) // handle chosen image
+            println(uri)
+            //            val file = uri.toFile()
+//            val inputStream = file.inputStream()
+//            val bytes = inputStream.readBytes()
+//            print(bytes);
         }
     }
 

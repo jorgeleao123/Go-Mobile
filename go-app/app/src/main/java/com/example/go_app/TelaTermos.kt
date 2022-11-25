@@ -1,8 +1,10 @@
 package com.example.go_app
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.example.go_app.databinding.ActivityTelaTermosBinding
 import com.example.go_app.models.UserRequest
@@ -40,8 +42,10 @@ class TelaTermos : AppCompatActivity() {
         cidade = intent.getStringExtra("nome").toString()
         bairro = intent.getStringExtra("bairro").toString()
 
+        binding.button.isEnabled = false
+
         binding.checkBox.setOnClickListener {
-            binding.button.isEnabled = !binding.checkBox.isChecked
+            binding.button.isEnabled = binding.checkBox.isChecked
         }
 
         binding.button.setOnClickListener {
@@ -57,16 +61,22 @@ class TelaTermos : AppCompatActivity() {
         request.postUser(body).enqueue(object : Callback<UserResponse>{
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 if(response.code() == 201){
-                    binding.checkBox.text = "Sucesso"
+                    Toast.makeText(this@TelaTermos, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
+                    goToLogin()
                 }
                 else {
-                    binding.checkBox.text = "Erro"
+                    Toast.makeText(this@TelaTermos, "Erro no cadastro", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                binding.checkBox.text = "Erro"
+                Toast.makeText(this@TelaTermos, "Erro de conexão", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun goToLogin(){
+        val telaLogin = Intent(this, Login::class.java)
+        startActivity(telaLogin)
     }
 }
