@@ -2,7 +2,9 @@ package com.example.go_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,11 +22,15 @@ import retrofit2.Response
 class IndexActivity : AppCompatActivity() {
     var recyclerView: RecyclerView? = null
     var btnPerfil: FrameLayout? = null
+    var inputPesquisa: EditText? = null
+    var btnBusca: ImageView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_index)
         recyclerView = findViewById(R.id.index_list_publication)
         btnPerfil = findViewById(R.id.index_profile)
+        inputPesquisa = findViewById(R.id.index_et_search)
+        btnBusca = findViewById(R.id.index_btn_search)
 
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         recyclerView?.layoutManager = layoutManager
@@ -36,6 +42,9 @@ class IndexActivity : AppCompatActivity() {
         btnPerfil!!.setOnClickListener {
             val telaPerfil = Intent(this, Perfil::class.java)
             startActivity(telaPerfil)
+        }
+        btnBusca!!.setOnClickListener {
+            irPesquisa()
         }
         val id = pasta.getString("idLogado", "")
         val nome = pasta.getString("nomeLogado", "")
@@ -114,5 +123,21 @@ class IndexActivity : AppCompatActivity() {
 
             }
         )
+    }
+
+    private fun irPesquisa() {
+        val telaPesquisa = Intent(
+            this,
+            Search::class.java
+        )
+        var busca = ""
+        if (inputPesquisa!!.text.isNotEmpty() && inputPesquisa!!.text.isNotBlank()) {
+            busca = inputPesquisa!!.text.toString()
+        }
+        telaPesquisa.putExtra(
+            "busca",
+            busca
+        )
+        startActivity(telaPesquisa)
     }
 }

@@ -65,7 +65,7 @@
 
     <!--Pesquisa-->
     <string name="search_title">Pesquisa</string>
-    <string name="search_input">Busque por placa, cidade ou estado</string>
+    <string name="search_input">Busque por placa ou cidade</string>
 
     <!--Notificações-->
     <string name="notification_title">Notificações</string>
