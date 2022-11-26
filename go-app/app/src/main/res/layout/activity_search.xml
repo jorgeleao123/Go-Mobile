@@ -15,7 +15,6 @@
         android:textAlignment="center"
         android:fontFamily="@font/mukta_semibold"
         android:text="@string/search_title"
-        android:textColor="@color/title_color"
         android:textSize="16dp" />
 
 
@@ -52,7 +51,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="552dp"
-        android:background="@color/card_search"
         android:orientation="vertical"
         android:padding="15dp">
 
@@ -70,7 +68,6 @@
             android:fontFamily="@font/mukta_medium"
             android:text="Encontramos 0 resultados para essa pesquisa!"
             android:textAlignment="center"
-            android:textColor="@color/title_color"
             android:textSize="12dp" />
 
         <androidx.recyclerview.widget.RecyclerView

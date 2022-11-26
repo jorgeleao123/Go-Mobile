@@ -44,7 +44,6 @@
                         android:layout_height="match_parent"
                         android:fontFamily="@font/mukta_extrabold"
                         android:text="Rafaella Kimberlly"
-                        android:textColor="@color/title_color"
                         android:textSize="16dp" />
                 </LinearLayout>
 

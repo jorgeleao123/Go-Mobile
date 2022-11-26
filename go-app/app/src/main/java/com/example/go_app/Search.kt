@@ -67,8 +67,6 @@ class Search : AppCompatActivity() {
                         if (response.body() != null) {
                             for (item in (response.body()!!)) {
                                 if (!item.status.equals("Inativo")) {
-
-                                } else {
                                     listaPub.add(item)
                                 }
                             }
@@ -103,8 +101,6 @@ class Search : AppCompatActivity() {
                         if (response.body() != null) {
                             for (item in (response.body()!!)) {
                                 if (!item.status.equals("Inativo")) {
-
-                                } else {
                                     listaPub.add(item)
                                 }
                             }

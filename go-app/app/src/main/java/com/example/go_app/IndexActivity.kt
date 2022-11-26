@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.go_app.adapter.CustomAdapter
@@ -42,8 +43,13 @@ class IndexActivity : AppCompatActivity() {
             "CREDENCIAIS",
             MODE_PRIVATE
         )
+
+        val dark = pasta.getBoolean("dark", false)
+        if (dark) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
         btnPerfil!!.setOnClickListener {
-            val telaPerfil = Intent(this, ConfigUsuario::class.java)
+            val telaPerfil = Intent(this, Perfil::class.java)
             startActivity(telaPerfil)
         }
         btnBusca!!.setOnClickListener {
@@ -82,8 +88,6 @@ class IndexActivity : AppCompatActivity() {
                         val listaPub = mutableListOf<ComplaintsResponse>()
                         for (item in (response.body()!!)) {
                             if (!item.status.equals("Inativo")) {
-
-                            } else {
                                 listaPub.add(item)
                             }
                         }

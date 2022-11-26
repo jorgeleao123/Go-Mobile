@@ -28,7 +28,6 @@
             android:textAlignment="center"
             android:fontFamily="@font/mukta_semibold"
             android:text="@string/notification_title"
-            android:textColor="@color/title_color"
             android:textSize="16dp" />
 
     </LinearLayout>
