@@ -43,6 +43,9 @@
             android:name=".ItensSalvos"
             android:exported="true" />
         <activity
+            android:name=".ConfigUsuario"
+            android:exported="true" />
+        <activity
             android:name=".TelaTermos"
             android:exported="false">
             <meta-data

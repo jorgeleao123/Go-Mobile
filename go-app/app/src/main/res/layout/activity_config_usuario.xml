@@ -95,17 +95,19 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
+        android:id="@+id/btn_desativar"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:text="Desativar"
-        app:cornerRadius="0dp"
+        android:onClick="desativaUsuario"
         android:textColor="#FF0000"
-        app:strokeWidth="2dp"
+        app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2"
-        app:strokeColor="#FF0000" />
+        app:strokeColor="#FF0000"
+        app:strokeWidth="2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

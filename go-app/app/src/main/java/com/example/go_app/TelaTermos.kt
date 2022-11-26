@@ -1,11 +1,10 @@
 package com.example.go_app
 
 import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.example.go_app.databinding.ActivityTelaTermosBinding
 import com.example.go_app.models.UserRequest
 import com.example.go_app.models.UserResponse
@@ -14,19 +13,18 @@ import com.example.go_app.services.Users
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.time.LocalDate
 
 class TelaTermos : AppCompatActivity() {
 
-    private  lateinit var binding: ActivityTelaTermosBinding
-    lateinit var email : String
-    lateinit var senha : String
-    lateinit var nome : String
-    lateinit var data : String
-    lateinit var sexo : String
-    lateinit var estado : String
-    lateinit var cidade : String
-    lateinit var bairro : String
+    private lateinit var binding: ActivityTelaTermosBinding
+    lateinit var email: String
+    lateinit var senha: String
+    lateinit var nome: String
+    lateinit var data: String
+    lateinit var sexo: String
+    lateinit var estado: String
+    lateinit var cidade: String
+    lateinit var bairro: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,10 +40,14 @@ class TelaTermos : AppCompatActivity() {
         cidade = intent.getStringExtra("nome").toString()
         bairro = intent.getStringExtra("bairro").toString()
 
-        binding.button.isEnabled = false
+        binding.button.visibility = View.INVISIBLE
 
         binding.checkBox.setOnClickListener {
-            binding.button.isEnabled = binding.checkBox.isChecked
+            if (binding.button.visibility == View.INVISIBLE) {
+                binding.button.visibility = View.VISIBLE
+            } else {
+                binding.button.visibility = View.INVISIBLE
+            }
         }
 
         binding.button.setOnClickListener {
@@ -54,17 +56,18 @@ class TelaTermos : AppCompatActivity() {
 
     }
 
-    private fun cadastrarUsuario(){
+    private fun cadastrarUsuario() {
         val request = Rest.getInstance().create(Users::class.java)
         val body = UserRequest(
-            nome, email, senha,"user", sexo, data, estado, cidade, bairro)
-        request.postUser(body).enqueue(object : Callback<UserResponse>{
+            nome, email, senha, "user", sexo, data, estado, cidade, bairro
+        )
+        request.postUser(body).enqueue(object : Callback<UserResponse> {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
-                if(response.code() == 201){
-                    Toast.makeText(this@TelaTermos, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
+                if (response.code() == 201) {
+                    Toast.makeText(this@TelaTermos, "Cadastrado com sucesso!", Toast.LENGTH_SHORT)
+                        .show()
                     goToLogin()
-                }
-                else {
+                } else {
                     Toast.makeText(this@TelaTermos, "Erro no cadastro", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -75,7 +78,7 @@ class TelaTermos : AppCompatActivity() {
         })
     }
 
-    private fun goToLogin(){
+    private fun goToLogin() {
         val telaLogin = Intent(this, Login::class.java)
         startActivity(telaLogin)
     }

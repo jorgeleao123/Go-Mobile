@@ -65,7 +65,13 @@ class Search : AppCompatActivity() {
                     } else {
                         println("aqui")
                         if (response.body() != null) {
-                            listaPub.addAll(response.body()!!)
+                            for (item in (response.body()!!)) {
+                                if (!item.status.equals("Inativo")) {
+
+                                } else {
+                                    listaPub.add(item)
+                                }
+                            }
                         }
 
                         getCidade(value)
@@ -95,7 +101,13 @@ class Search : AppCompatActivity() {
                     } else {
                         println("aqui")
                         if (response.body() != null) {
-                            listaPub.addAll(response.body()!!)
+                            for (item in (response.body()!!)) {
+                                if (!item.status.equals("Inativo")) {
+
+                                } else {
+                                    listaPub.add(item)
+                                }
+                            }
                         }
                         total!!.text =
                             "Encontramos ${listaPub.size} resultados para essa pesquisa!"
@@ -107,7 +119,12 @@ class Search : AppCompatActivity() {
 
                         val id = pasta.getString("idLogado", "")
                         if (id != null) {
-                            val adapter = CustomAdapter(listaPub, id.toString().toInt(), true,applicationContext)
+                            val adapter = CustomAdapter(
+                                listaPub,
+                                id.toString().toInt(),
+                                true,
+                                applicationContext
+                            )
                             recyclerView?.adapter = adapter
                         }
 

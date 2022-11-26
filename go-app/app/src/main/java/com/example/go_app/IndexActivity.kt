@@ -43,7 +43,7 @@ class IndexActivity : AppCompatActivity() {
             MODE_PRIVATE
         )
         btnPerfil!!.setOnClickListener {
-            val telaPerfil = Intent(this, Perfil::class.java)
+            val telaPerfil = Intent(this, ConfigUsuario::class.java)
             startActivity(telaPerfil)
         }
         btnBusca!!.setOnClickListener {
@@ -77,9 +77,19 @@ class IndexActivity : AppCompatActivity() {
                     if (response.code() == 404) {
                         println("não foi")
                     } else {
+
                         println("aqui")
+                        val listaPub = mutableListOf<ComplaintsResponse>()
+                        for (item in (response.body()!!)) {
+                            if (!item.status.equals("Inativo")) {
+
+                            } else {
+                                listaPub.add(item)
+                            }
+                        }
                         val adapter =
-                            CustomAdapter(response.body()!!, idLogado.toString().toInt(), true,
+                            CustomAdapter(
+                                listaPub, idLogado.toString().toInt(), true,
                                 applicationContext
                             )
                         recyclerView?.adapter = adapter
