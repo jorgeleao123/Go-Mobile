@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.go_app.R
 import com.example.go_app.models.ComplaintsResponse
+import com.squareup.picasso.Picasso
 
 class CustomAdapter(
     val dataSet: List<ComplaintsResponse>
@@ -21,6 +22,7 @@ class CustomAdapter(
         val data: TextView
         val textBoletim: TextView
         val seloBoletim: ImageView
+        val image: ImageView
 
         init {
             primeiraLetra = view.findViewById(R.id.primeira_letra)
@@ -30,6 +32,7 @@ class CustomAdapter(
             data = view.findViewById(R.id.data)
             textBoletim = view.findViewById(R.id.textBoletim)
             seloBoletim = view.findViewById(R.id.seloBoletim)
+            image = view.findViewById(R.id.image_1)
         }
     }
 
@@ -45,8 +48,10 @@ class CustomAdapter(
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-        val complaint: ComplaintsResponse = dataSet[position]
+        val complaint: ComplaintsResponse = dataSet.reversed()[position]
         val url = "http://10.0.2.2:8080/complaints/archive/${complaint.id}"
+//        val url =
+//            "http://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png"
         viewHolder.primeiraLetra.text = complaint.user.name.subSequence(0, 1)
         viewHolder.descricao.text = complaint.description
         viewHolder.nameUser.text = "${complaint.user.name.subSequence(0, 1)}******"
@@ -58,6 +63,7 @@ class CustomAdapter(
             viewHolder.seloBoletim.visibility = View.INVISIBLE
         }
 
+        Picasso.get().load(url).into(viewHolder.image);
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
 //        viewHolder.textView.text = dataSet[position]

@@ -24,6 +24,7 @@ class IndexActivity : AppCompatActivity() {
     var btnPerfil: FrameLayout? = null
     var inputPesquisa: EditText? = null
     var btnBusca: ImageView? = null
+    var btnNotification: ImageView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_index)
@@ -31,6 +32,7 @@ class IndexActivity : AppCompatActivity() {
         btnPerfil = findViewById(R.id.index_profile)
         inputPesquisa = findViewById(R.id.index_et_search)
         btnBusca = findViewById(R.id.index_btn_search)
+        btnNotification = findViewById(R.id.index_notification)
 
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         recyclerView?.layoutManager = layoutManager
@@ -45,6 +47,9 @@ class IndexActivity : AppCompatActivity() {
         }
         btnBusca!!.setOnClickListener {
             irPesquisa()
+        }
+        btnNotification!!.setOnClickListener {
+            goNotification()
         }
         val id = pasta.getString("idLogado", "")
         val nome = pasta.getString("nomeLogado", "")
@@ -139,5 +144,14 @@ class IndexActivity : AppCompatActivity() {
             busca
         )
         startActivity(telaPesquisa)
+    }
+
+    private fun goNotification() {
+        val viewNotification = Intent(
+            this,
+            Notification::class.java
+        )
+
+        startActivity(viewNotification)
     }
 }
