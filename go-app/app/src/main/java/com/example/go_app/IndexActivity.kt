@@ -25,6 +25,7 @@ class IndexActivity : AppCompatActivity() {
     var inputPesquisa: EditText? = null
     var btnBusca: ImageView? = null
     var btnNotification: ImageView? = null
+    var idLogado: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_index)
@@ -51,16 +52,16 @@ class IndexActivity : AppCompatActivity() {
         btnNotification!!.setOnClickListener {
             goNotification()
         }
-        val id = pasta.getString("idLogado", "")
+        idLogado = pasta.getString("idLogado", "")
         val nome = pasta.getString("nomeLogado", "")
-        if (id != null) {
+        if (idLogado != null) {
             var nomeTela: TextView? = null
             nomeTela = findViewById(R.id.index_text_name)
             var primeiraLetra: TextView? = null
             primeiraLetra = findViewById(R.id.tv_valor)
             nomeTela.text = nome
             primeiraLetra.text = nome!!.subSequence(0, 1)
-            getAddress(id.toInt())
+            getAddress(idLogado.toString().toInt())
         }
     }
 
@@ -77,7 +78,10 @@ class IndexActivity : AppCompatActivity() {
                         println("não foi")
                     } else {
                         println("aqui")
-                        val adapter = CustomAdapter(response.body()!!)
+                        val adapter =
+                            CustomAdapter(response.body()!!, idLogado.toString().toInt(), true,
+                                applicationContext
+                            )
                         recyclerView?.adapter = adapter
                     }
 

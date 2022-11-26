@@ -64,7 +64,7 @@ class Search : AppCompatActivity() {
                         println("não foi")
                     } else {
                         println("aqui")
-                        if(response.body() !=null){
+                        if (response.body() != null) {
                             listaPub.addAll(response.body()!!)
                         }
 
@@ -94,13 +94,24 @@ class Search : AppCompatActivity() {
                         println("não foi")
                     } else {
                         println("aqui")
-                        if(response.body() !=null){
+                        if (response.body() != null) {
                             listaPub.addAll(response.body()!!)
                         }
                         total!!.text =
                             "Encontramos ${listaPub.size} resultados para essa pesquisa!"
-                        val adapter = CustomAdapter(listaPub)
-                        recyclerView?.adapter = adapter
+
+                        val pasta = getSharedPreferences(
+                            "CREDENCIAIS",
+                            MODE_PRIVATE
+                        )
+
+                        val id = pasta.getString("idLogado", "")
+                        if (id != null) {
+                            val adapter = CustomAdapter(listaPub, id.toString().toInt(), true,applicationContext)
+                            recyclerView?.adapter = adapter
+                        }
+
+
                     }
 
                 }
