@@ -1,5 +1,6 @@
 package com.example.go_app.services
 
+import com.example.go_app.models.ComplaintRequest
 import com.example.go_app.models.ComplaintsResponse
 import com.example.go_app.models.UserRequest
 import com.example.go_app.models.UserResponse
@@ -11,8 +12,8 @@ interface Publications {
     @POST("/complaints/{userId}")
     fun postPublication(
         @Path("userId") userId : Int,
-        @Body body: UserRequest
-    ) : Call<List<ComplaintsResponse>>
+        @Body body: ComplaintRequest
+    ) : Call<ComplaintsResponse>
 
     @GET("/complaints/Id/{complaintId}")
     fun getPublication(
