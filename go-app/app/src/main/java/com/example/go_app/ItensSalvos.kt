@@ -47,7 +47,7 @@ import retrofit2.Response
                             println("não foi")
                         }else{
                             println("aqui")
-                            val adapter = CustomAdapter(response.body()!!)
+                            val adapter = CustomAdapter(response.body()!!,id,false,applicationContext)
                             recyclerView?.adapter = adapter
                         }
 

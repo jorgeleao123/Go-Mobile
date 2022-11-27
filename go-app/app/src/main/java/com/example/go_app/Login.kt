@@ -62,19 +62,24 @@ class Login : AppCompatActivity() {
                 if (response.code() == 400) {
                     binding.tvErro.text = "Email e/ou senha inválidos"
                 } else {
-                    //TODO: Guardar informações do user offline
-                    val pasta = getSharedPreferences(
-                        "CREDENCIAIS",
-                        MODE_PRIVATE
-                    )
-                    val editor = pasta.edit()
-                    editor.putString("idLogado", response.body()?.id.toString())
-                    editor.commit()
-                    editor.putString("nomeLogado", response.body()?.name.toString())
-                    editor.commit()
-                    editor.putString("buscasFeitas", response.body()?.searchCounter.toString())
-                    editor.commit()
-                    entrarHome()
+                    if(response.body()?.status.equals("inativo")){
+                        binding.tvErro.text = "Conta Desativada"
+                    }else{
+                        //TODO: Guardar informações do user offline
+                        val pasta = getSharedPreferences(
+                            "CREDENCIAIS",
+                            MODE_PRIVATE
+                        )
+                        val editor = pasta.edit()
+                        editor.putString("idLogado", response.body()?.id.toString())
+                        editor.commit()
+                        editor.putString("nomeLogado", response.body()?.name.toString())
+                        editor.commit()
+                        editor.putString("buscasFeitas", response.body()?.searchCounter.toString())
+                        editor.commit()
+                        entrarHome()
+                    }
+
                 }
             }
 

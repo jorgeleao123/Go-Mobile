@@ -73,7 +73,7 @@ class Perfil : AppCompatActivity() {
                         var totalPubli: TextView? = null
                         totalPubli = findViewById(R.id.textView17)
                         totalPubli.text = response.body()!!.size.toString()
-                        val adapter = CustomAdapter(response.body()!!)
+                        val adapter = CustomAdapter(response.body()!!,id,true,applicationContext)
                         recyclerView?.adapter = adapter
                     }
 

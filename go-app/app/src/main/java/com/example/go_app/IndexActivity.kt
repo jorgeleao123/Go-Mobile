@@ -2,9 +2,12 @@ package com.example.go_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.go_app.adapter.CustomAdapter
@@ -20,11 +23,18 @@ import retrofit2.Response
 class IndexActivity : AppCompatActivity() {
     var recyclerView: RecyclerView? = null
     var btnPerfil: FrameLayout? = null
+    var inputPesquisa: EditText? = null
+    var btnBusca: ImageView? = null
+    var btnNotification: ImageView? = null
+    var idLogado: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_index)
         recyclerView = findViewById(R.id.index_list_publication)
         btnPerfil = findViewById(R.id.index_profile)
+        inputPesquisa = findViewById(R.id.index_et_search)
+        btnBusca = findViewById(R.id.index_btn_search)
+        btnNotification = findViewById(R.id.index_notification)
 
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         recyclerView?.layoutManager = layoutManager
@@ -33,20 +43,31 @@ class IndexActivity : AppCompatActivity() {
             "CREDENCIAIS",
             MODE_PRIVATE
         )
+
+        val dark = pasta.getBoolean("dark", false)
+        if (dark) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
         btnPerfil!!.setOnClickListener {
             val telaPerfil = Intent(this, Perfil::class.java)
             startActivity(telaPerfil)
         }
-        val id = pasta.getString("idLogado", "")
+        btnBusca!!.setOnClickListener {
+            irPesquisa()
+        }
+        btnNotification!!.setOnClickListener {
+            goNotification()
+        }
+        idLogado = pasta.getString("idLogado", "")
         val nome = pasta.getString("nomeLogado", "")
-        if (id != null) {
+        if (idLogado != null) {
             var nomeTela: TextView? = null
             nomeTela = findViewById(R.id.index_text_name)
             var primeiraLetra: TextView? = null
             primeiraLetra = findViewById(R.id.tv_valor)
             nomeTela.text = nome
             primeiraLetra.text = nome!!.subSequence(0, 1)
-            getAddress(id.toInt())
+            getAddress(idLogado.toString().toInt())
         }
     }
 
@@ -62,8 +83,19 @@ class IndexActivity : AppCompatActivity() {
                     if (response.code() == 404) {
                         println("não foi")
                     } else {
+
                         println("aqui")
-                        val adapter = CustomAdapter(response.body()!!)
+                        val listaPub = mutableListOf<ComplaintsResponse>()
+                        for (item in (response.body()!!)) {
+                            if (!item.status.equals("Inativo")) {
+                                listaPub.add(item)
+                            }
+                        }
+                        val adapter =
+                            CustomAdapter(
+                                listaPub, idLogado.toString().toInt(), true,
+                                applicationContext
+                            )
                         recyclerView?.adapter = adapter
                     }
 
@@ -114,5 +146,30 @@ class IndexActivity : AppCompatActivity() {
 
             }
         )
+    }
+
+    private fun irPesquisa() {
+        val telaPesquisa = Intent(
+            this,
+            Search::class.java
+        )
+        var busca = ""
+        if (inputPesquisa!!.text.isNotEmpty() && inputPesquisa!!.text.isNotBlank()) {
+            busca = inputPesquisa!!.text.toString()
+        }
+        telaPesquisa.putExtra(
+            "busca",
+            busca
+        )
+        startActivity(telaPesquisa)
+    }
+
+    private fun goNotification() {
+        val viewNotification = Intent(
+            this,
+            Notification::class.java
+        )
+
+        startActivity(viewNotification)
     }
 }
