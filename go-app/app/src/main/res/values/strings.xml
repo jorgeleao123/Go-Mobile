@@ -61,11 +61,14 @@
     <string name="tc_titulo">Termos e condições</string>
     <string name="tc_subtitulo">Aqui estão os termos e condições de uso do nosso aplicativo. Ao clicar em "Cadastrar" você está de acordo com os termos aqui escritos.</string>
     <string name="tc_aceite">Declaro que li e aceito os termos e condições de uso.</string>
-    <string name="tc_termo">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</string>
-
+    <string name="tc_termo">POR FAVOR, LEIA COM ATENÇÃO ESTES TERMOS ANTES DE ACESSAR OU USAR OS SERVIÇOS.
+        Ao prosseguir concordo com o processamento dos meus dados pessoais de usuário para ter acesso aos recursos do aplicativo GO. Caso não aceite prosseguir, não poderá utilizar dos recursos providos pelo aplicativo nem outros aplicativos da empresa Connect.
+        Autorizo a GO a usar meus dados pessoais (exceto dados de publicações) para poder realizar denúncias apenas de casos que estive envolvido. Tanto como vítima quanto possível culpado.
+        Você pode revogar o consentimento ou queira esclarecer alguma dúvida sobre nossa Política de Privacidade ou nossos termos de uso, por favor entre em contato pelo email: connect@gmail.com
+    </string>
     <!--Pesquisa-->
     <string name="search_title">Pesquisa</string>
-    <string name="search_input">Busque por placa, cidade ou estado</string>
+    <string name="search_input">Busque por placa ou cidade</string>
 
     <!--Notificações-->
     <string name="notification_title">Notificações</string>

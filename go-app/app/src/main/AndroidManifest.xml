@@ -3,7 +3,7 @@
     package="com.example.go_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -27,7 +27,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
+        <activity
             android:name=".Search"
             android:exported="false" />
         <activity
@@ -41,6 +41,9 @@
             android:exported="true" />
         <activity
             android:name=".ItensSalvos"
+            android:exported="true" />
+        <activity
+            android:name=".ConfigUsuario"
             android:exported="true" />
         <activity
             android:name=".TelaTermos"

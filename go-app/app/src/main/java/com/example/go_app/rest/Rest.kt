@@ -9,13 +9,13 @@ object Rest {
 
     /* ----------- Develop - Teste local H2 ----------- */
     // Emulador - IP padrão da máquina
-//    val baseUrl = "http://10.0.2.2:8080/"
+    val baseUrl = "http://10.0.2.2:8080/"
     // Celular - IP da rede (No linux hostname -I)
     // Celular e máquina conectados no mesmo wifi/rede
 //    val baseUrl = "http://192.168.28.15:8080/"
 
     /* ----------- Produção (nuvem) ----------- */
-    val baseUrl = "http://44.210.60.105:8080/"
+//    val baseUrl = "http://44.210.60.105:8080/"
 
     fun getInstance(): Retrofit {
         return Retrofit
