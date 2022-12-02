@@ -2,6 +2,9 @@ package com.example.go_app
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -19,6 +22,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.create
+import java.io.ByteArrayOutputStream
 
 class NovaDenuncia : AppCompatActivity() {
 
@@ -67,7 +71,6 @@ class NovaDenuncia : AppCompatActivity() {
                     binding.btnDenunciar.isEnabled = true
                 }
             }
-
         })
         placa.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -138,14 +141,19 @@ class NovaDenuncia : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-            val uri = data?.data!!
-            //TODO: Tratar data nula depois
-            binding.ivImagem.setImageURI(uri) // handle chosen image
-            println(uri)
-            val file = uri.toFile()
-            val inputStream = file.inputStream()
-            val bytes = inputStream.readBytes()
-            print(bytes);
+            val selectedImageUri: Uri? = data?.data
+            if(selectedImageUri != null){
+                binding.ivImagem.setImageURI(selectedImageUri) // handle chosen image
+                val imageStream = contentResolver.openInputStream(selectedImageUri)
+                val selectedImage = BitmapFactory.decodeStream(imageStream)
+
+                val saida = ByteArrayOutputStream()
+                println(saida)
+                selectedImage.compress(Bitmap.CompressFormat.PNG, 100, saida)
+                val img = saida.toByteArray()
+//                println(img)
+
+            }
         }
     }
 
