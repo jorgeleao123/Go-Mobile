@@ -18,11 +18,22 @@ import retrofit2.Response
 class EditarPerfil : AppCompatActivity() {
 
     private lateinit var binding : ActivityEditarPerfilBinding
+    var idLogado : String? = null;
+    var colorProfile : String? = ""
+    var colorMenu : String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditarPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val pasta = getSharedPreferences(
+            "CREDENCIAIS",
+            MODE_PRIVATE
+        )
+        idLogado = pasta.getString("idLogado", "0")
+        colorMenu = pasta.getString("colorMenu", "#144D6C")
+        colorProfile = pasta.getString("colorProfile", "#1F869D")
 
         var email = binding.etEmail
         var senha = binding.etSenha
@@ -102,18 +113,15 @@ class EditarPerfil : AppCompatActivity() {
         var name = binding.etNome.text.toString()
         var email = binding.etEmail.text.toString()
         var password = binding.etSenha.text.toString()
-        //TODO: pegar o ID certo e o colorProfile do offline
-        var id = 1
-        var colorProfile = ""
-        var colorMenu = ""
+        var id = idLogado?.toInt()
 
         val request = Rest.getInstance().create(Users::class.java)
         val body = UserAttRequest(
-            name, email, password, colorProfile, colorMenu
+            name, email, password, colorProfile!!, colorMenu!!
         )
-        request.attUser(id, body).enqueue(object : Callback<UserAttResponse> {
+        request.attUser(id!!, body).enqueue(object : Callback<UserAttResponse> {
             override fun onResponse(call: Call<UserAttResponse>, response: Response<UserAttResponse>) {
-                if(response.code() == 201){
+                if(response.code() == 200){
                     Toast.makeText(this@EditarPerfil, "Perfil atualizado!", Toast.LENGTH_SHORT).show()
                 }
                 else {
