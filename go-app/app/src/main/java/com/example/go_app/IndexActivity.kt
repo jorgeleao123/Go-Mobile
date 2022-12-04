@@ -49,10 +49,8 @@ class IndexActivity : AppCompatActivity() {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
         btnPerfil!!.setOnClickListener {
-//            val telaPerfil = Intent(this, Perfil::class.java)
-//            startActivity(telaPerfil)
-            val telaCadastro = Intent(this, NovaDenuncia::class.java)
-            startActivity(telaCadastro)
+            val telaPerfil = Intent(this, Perfil::class.java)
+            startActivity(telaPerfil)
         }
         btnBusca!!.setOnClickListener {
             irPesquisa()
