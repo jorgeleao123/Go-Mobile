@@ -4,6 +4,7 @@ import com.example.go_app.models.ComplaintRequest
 import com.example.go_app.models.ComplaintsResponse
 import com.example.go_app.models.UserRequest
 import com.example.go_app.models.UserResponse
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
 import java.io.File
@@ -51,11 +52,13 @@ interface Publications {
         @Path("license") license : String
     ) : Call<List<ComplaintsResponse>>
 
-    @PUT("/complaints/archive/{userId}/{complaintId}")
+    @Multipart
+        @PUT("/complaints/archive/{userId}/{complaintId}")
     fun putImageInComplaint(
         @Path("userId") userId : Int,
         @Path("complaintId") complaintId : Int,
-        @Body body : File
+        @Part file: MultipartBody.Part?,
     ) : Call<ComplaintsResponse>
+
 
 }

@@ -31,8 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToCadastro(){
 
-//        val telaCadastro = Intent(this, Cadastro1::class.java)
-        val telaCadastro = Intent(this, NovaDenuncia::class.java)
+        val telaCadastro = Intent(this, Cadastro1::class.java)
         startActivity(telaCadastro)
     }
 }

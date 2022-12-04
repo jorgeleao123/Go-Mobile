@@ -61,10 +61,8 @@ class CustomAdapter(
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-        val complaint: ComplaintsResponse = dataSet.reversed()[position]
+        val complaint: ComplaintsResponse = dataSet[position]
         val url = "http://10.0.2.2:8080/complaints/archive/${complaint.id}"
-//        val url =
-//            "http://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png"
         viewHolder.primeiraLetra.text = complaint.user.name.subSequence(0, 1)
         viewHolder.descricao.text = complaint.description
         viewHolder.nameUser.text = "${complaint.user.name.subSequence(0, 1)}******"

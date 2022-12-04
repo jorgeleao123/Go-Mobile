@@ -15,8 +15,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-//import com.example.go_app.adapter.CustomAdapter
-
 class Search : AppCompatActivity() {
     var recyclerView: RecyclerView? = null
     var inputPesquisa: EditText? = null
@@ -26,7 +24,7 @@ class Search : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-        inputPesquisa = findViewById(R.id.index_et_search)
+        inputPesquisa = findViewById(R.id.search_et_search)
         btnBusca = findViewById(R.id.search_btn_search)
         total = findViewById(R.id.search_result)
 
