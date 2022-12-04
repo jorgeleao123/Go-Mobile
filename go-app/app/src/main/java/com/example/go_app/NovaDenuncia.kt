@@ -1,17 +1,15 @@
 package com.example.go_app
 
+import android.R.attr
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toFile
 import com.example.go_app.databinding.ActivityNovaDenunciaBinding
 import com.example.go_app.models.*
@@ -19,12 +17,11 @@ import com.example.go_app.rest.Rest
 import com.example.go_app.rest.RestCep
 import com.example.go_app.services.Cep
 import com.example.go_app.services.Publications
-import com.example.go_app.services.Users
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.create
-import java.io.ByteArrayOutputStream
+import java.io.File
+
 
 class NovaDenuncia : AppCompatActivity() {
 
@@ -38,6 +35,7 @@ class NovaDenuncia : AppCompatActivity() {
     var cidade = ""
     var bairro = ""
     lateinit var dataFormatada : String
+    var img : File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,7 +88,7 @@ class NovaDenuncia : AppCompatActivity() {
                 } else if(placa.text.isEmpty()){
                     placa.error = "A placa não pode ser vazia"
                 } else{
-                    descricao.error = "Placa inválida"
+                    placa.error = "Placa inválida"
                 }
             }
 
@@ -152,16 +150,8 @@ class NovaDenuncia : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
             val selectedImageUri: Uri? = data?.data
             if(selectedImageUri != null){
-                binding.ivImagem.setImageURI(selectedImageUri) // handle chosen image
-                val imageStream = contentResolver.openInputStream(selectedImageUri)
-                val selectedImage = BitmapFactory.decodeStream(imageStream)
-
-                val saida = ByteArrayOutputStream()
-                println(saida)
-                selectedImage.compress(Bitmap.CompressFormat.PNG, 100, saida)
-                val img = saida.toByteArray()
-//                println(img)
-
+                binding.ivImagem.setImageURI(selectedImageUri)
+                img = selectedImageUri.toFile()
             }
         }
     }
@@ -188,12 +178,10 @@ class NovaDenuncia : AppCompatActivity() {
     }
 
     private fun cadastrarDenuncia(){
-        //TODO: Ver como pegar o tipo de denúncia
         var id = idLogado!!.toInt()
         var type = binding.snSpinner.selectedItem.toString()
         var descricao = binding.etDescricao.text.toString()
         var bo = binding.etCodigoBo.text.toString()
-        //Figma está faltando muita coisa!
         var driverName = binding.etNomeMotorista.text.toString()
         var licensePlate = binding.etPlaca.text.toString()
         var state = binding.etEstado.text.toString()
@@ -208,6 +196,11 @@ class NovaDenuncia : AppCompatActivity() {
         request.postPublication(id, body).enqueue(object : Callback<ComplaintsResponse>{
             override fun onResponse(call: Call<ComplaintsResponse>, response: Response<ComplaintsResponse>) {
                 if(response.code() == 201){
+                    if(img != null){
+                        if(!putImage(response.body()!!.id)){
+                            Toast.makeText(this@NovaDenuncia, "Erro na imagem!", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                     Toast.makeText(this@NovaDenuncia, "Denúncia cadastrada!", Toast.LENGTH_SHORT).show()
                 }
                 else {
@@ -219,6 +212,25 @@ class NovaDenuncia : AppCompatActivity() {
                 Toast.makeText(this@NovaDenuncia, "Erro de conexão", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun putImage(complaintId : Int) : Boolean {
+        var isValido = false
+        val id = idLogado!!.toInt()
+        val request = Rest.getInstance().create(Publications::class.java)
+        request.putImageInComplaint(id, complaintId, img!!).enqueue(object : Callback<ComplaintsResponse>{
+            override fun onResponse(
+                call: Call<ComplaintsResponse>,
+                response: Response<ComplaintsResponse>
+            ) {
+                isValido = true
+            }
+            override fun onFailure(call: Call<ComplaintsResponse>, t: Throwable) {
+                isValido = false
+                print(t.message)
+            }
+        })
+        return isValido
     }
 
 }

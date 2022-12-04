@@ -6,6 +6,7 @@ import com.example.go_app.models.UserRequest
 import com.example.go_app.models.UserResponse
 import retrofit2.Call
 import retrofit2.http.*
+import java.io.File
 
 interface Publications {
     
@@ -49,5 +50,12 @@ interface Publications {
     fun getPublicationsByLicense(
         @Path("license") license : String
     ) : Call<List<ComplaintsResponse>>
+
+    @PUT("/complaints/archive/{userId}/{complaintId}")
+    fun putImageInComplaint(
+        @Path("userId") userId : Int,
+        @Path("complaintId") complaintId : Int,
+        @Body body : File
+    ) : Call<ComplaintsResponse>
 
 }

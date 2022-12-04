@@ -75,8 +75,13 @@
 
     <!-- Nova denúncia -->
     <string-array name="tipos_denuncias">
-        <item>Opção 1</item>
-        <item>Opção 2</item>
-        <item>Opção 3</item>
+        <item>Assédio</item>
+        <item>Assédio moral</item>
+        <item>Racismo</item>
+        <item>Agressão física</item>
+        <item>Agressão verbal</item>
+        <item>Homofobia</item>
+        <item>Preconceito</item>
+        <item>Furto</item>
     </string-array>
 </resources>
