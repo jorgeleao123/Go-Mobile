@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.core.net.toFile
 import com.example.go_app.databinding.ActivityNovaDenunciaBinding
@@ -29,18 +31,26 @@ class NovaDenuncia : AppCompatActivity() {
     private lateinit var binding : ActivityNovaDenunciaBinding
     val REQUEST_CODE = 100
 
-    var id = 1
+    var idLogado : String? = null
+    var colorProfile : String? = null
+    var colorMenu : String? = null
     var estado = ""
     var cidade = ""
     var bairro = ""
-    lateinit var colorProfile : String
-    lateinit var colorMenu : String
     lateinit var dataFormatada : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNovaDenunciaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val pasta = getSharedPreferences(
+            "CREDENCIAIS",
+            MODE_PRIVATE
+        )
+        idLogado = pasta.getString("idLogado", "0")
+        colorMenu = pasta.getString("colorMenu", "#144D6C")
+        colorProfile = pasta.getString("colorProfile", "#1F869D")
 
         binding.btnDenunciar.isEnabled = false
 
@@ -49,10 +59,9 @@ class NovaDenuncia : AppCompatActivity() {
         var data = binding.etData
         var codigoBo = binding.etCodigoBo
 
-        //TODO: Pegar o id, colorProfile e colorMenu do offline
-        colorProfile = ""
-        colorMenu = ""
-        id = 1
+        val tiposDenuncias = resources.getStringArray(R.array.tipos_denuncias)
+        val arrayAdapter = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, tiposDenuncias)
+        binding.snSpinner.setAdapter(arrayAdapter)
 
         descricao.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -180,13 +189,13 @@ class NovaDenuncia : AppCompatActivity() {
 
     private fun cadastrarDenuncia(){
         //TODO: Ver como pegar o tipo de denúncia
-        var type = ""
+        var id = idLogado!!.toInt()
+        var type = binding.snSpinner.selectedItem.toString()
         var descricao = binding.etDescricao.text.toString()
         var bo = binding.etCodigoBo.text.toString()
-        //TODO: Ver como pegar o nome do motorista
         //Figma está faltando muita coisa!
-        var driverName = ""
-        var licensePlate = ""
+        var driverName = binding.etNomeMotorista.text.toString()
+        var licensePlate = binding.etPlaca.text.toString()
         var state = binding.etEstado.text.toString()
         var city = binding.etCidade.text.toString()
         var district = bairro
@@ -195,6 +204,7 @@ class NovaDenuncia : AppCompatActivity() {
         val body = ComplaintRequest(
             type, descricao, bo, driverName, licensePlate, state, city, district, dateTimeComplaint
         )
+        println(body)
         request.postPublication(id, body).enqueue(object : Callback<ComplaintsResponse>{
             override fun onResponse(call: Call<ComplaintsResponse>, response: Response<ComplaintsResponse>) {
                 if(response.code() == 201){

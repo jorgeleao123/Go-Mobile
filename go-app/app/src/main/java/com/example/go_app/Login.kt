@@ -65,7 +65,6 @@ class Login : AppCompatActivity() {
                     if(response.body()?.status.equals("inativo")){
                         binding.tvErro.text = "Conta Desativada"
                     }else{
-                        //TODO: Guardar informações do user offline
                         val pasta = getSharedPreferences(
                             "CREDENCIAIS",
                             MODE_PRIVATE

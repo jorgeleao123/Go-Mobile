@@ -72,4 +72,11 @@
 
     <!--Notificações-->
     <string name="notification_title">Notificações</string>
+
+    <!-- Nova denúncia -->
+    <string-array name="tipos_denuncias">
+        <item>Opção 1</item>
+        <item>Opção 2</item>
+        <item>Opção 3</item>
+    </string-array>
 </resources>

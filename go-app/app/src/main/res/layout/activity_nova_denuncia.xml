@@ -58,6 +58,42 @@
                     android:textColor="@color/black"
                     android:textSize="15dp" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:text="Tipo de denúncia"
+                    android:textSize="15dp" />
+
+<!--                colocar select-->
+                <Spinner
+                    android:id="@+id/sn_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:autofillHints="Escolha"
+                    android:spinnerMode="dropdown"
+                    android:background="@drawable/spinner_bg"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/mukta_extrabold"
+                    android:text="Nome do motorista"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/et_placa"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/primary_gray"
+                    android:fontFamily="@font/mukta_light"
+                    android:hint="Digite o nome do motorista"
+                    android:maxLength="10"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -68,7 +104,7 @@
                     android:textSize="15dp" />
 
                 <EditText
-                    android:id="@+id/et_placa"
+                    android:id="@+id/et_nomeMotorista"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@color/primary_gray"
