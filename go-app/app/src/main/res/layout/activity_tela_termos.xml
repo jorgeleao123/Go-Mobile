@@ -52,6 +52,11 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="15dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,9 +64,9 @@
             android:text="@string/tc_termo"
             android:textSize="15sp" />
 
-    </ScrollView>
 
-    <CheckBox
+
+        <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,5 +82,8 @@
         android:textAllCaps="false"
         android:fontFamily="@font/mukta_semibold"
         android:backgroundTint="@color/text_blue"/>
+    </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
