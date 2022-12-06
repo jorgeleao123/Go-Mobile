@@ -2,6 +2,8 @@ package com.example.go_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Switch
 import android.widget.Toast
@@ -9,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.go_app.models.SuccessResponse
 import com.example.go_app.rest.Rest
+import com.example.go_app.services.Publications
 import com.example.go_app.services.Users
 import retrofit2.Call
 import retrofit2.Callback
@@ -76,5 +79,26 @@ class ConfigUsuario : AppCompatActivity() {
 
         val telaLogin = Intent(this, MainActivity::class.java)
         startActivity(telaLogin)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val index = Intent(this, IndexActivity::class.java)
+        val publication = Intent(this, NovaDenuncia::class.java)
+        val search = Intent(this, Search::class.java)
+        val save = Intent(this, ItensSalvos::class.java)
+        val config = Intent(this, ConfigUsuario::class.java)
+
+        when(item.itemId){
+            R.id.ic_index -> startActivity(index)
+            R.id.ic_publication -> startActivity(publication)
+            R.id.ic_search -> startActivity(search)
+            R.id.ic_save -> startActivity(save)
+            R.id.ic_settings -> startActivity(config)
+        }
+       return super.onOptionsItemSelected(item)
     }
 }

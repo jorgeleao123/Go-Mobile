@@ -6,8 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:outlineProvider="none"
-    android:padding="20dp"
     tools:context=".ConfigUsuario">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="20dp"
+        android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView2"
@@ -36,7 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Configurações"
-        android:textStyle="bold"
+        android:textSize="15dp"
+        android:fontFamily="@font/mukta_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -99,12 +104,26 @@
         android:backgroundTint="@color/white"
         android:onClick="desativaUsuario"
         android:text="Desativar"
-        android:textColor="#FF0000"
+        android:textSize="11dp"
+        android:textColor="#BB2C2C"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2"
-        app:strokeColor="#FF0000"
+        app:strokeColor="#BB2C2C"
         app:strokeWidth="2dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/menu"
+        app:itemIconTint="@color/white"
+        android:padding="-20dp"
+        android:background="@color/nav_color"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
