@@ -47,6 +47,10 @@ class NovaDenuncia : AppCompatActivity() {
         binding = ActivityNovaDenunciaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.seta.setOnClickListener {
+            goToIndex()
+        }
+
         val pasta = getSharedPreferences(
             "CREDENCIAIS",
             MODE_PRIVATE
@@ -273,5 +277,9 @@ class NovaDenuncia : AppCompatActivity() {
         return isValido
     }
 
+    private fun goToIndex(){
+        val telaIndex = Intent(this, IndexActivity::class.java)
+        startActivity(telaIndex)
+    }
 }
 

@@ -19,6 +19,7 @@ import retrofit2.Response
 class Notification : AppCompatActivity() {
     var recyclerView: RecyclerView? = null
     var btnBack: ImageView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notification)

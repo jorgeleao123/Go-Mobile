@@ -16,7 +16,7 @@
     <color name="nav_color">#1B1A1A</color>
     <color name="link_nav_color">#6EB7ED</color>
     <color name="text_color">#5A5A5A</color>
-    <color name="card_search">#F9F9F9</color>
+    <color name="card_search">#F8F6F6</color>
     <color name="btn_blue">#144D6C</color>
     <color name="font_nav">#ACACAC</color>
 </resources>

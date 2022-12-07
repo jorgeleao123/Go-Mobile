@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.go_app.adapter.CustomAdapter
+import com.example.go_app.databinding.ActivityEditarPerfilBinding
+import com.example.go_app.databinding.ActivityPerfilBinding
 import com.example.go_app.models.ComplaintsResponse
 import com.example.go_app.rest.Rest
 import com.example.go_app.services.Publications
@@ -17,11 +19,20 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Perfil : AppCompatActivity() {
+    private lateinit var binding : ActivityPerfilBinding
+
     var recyclerView: RecyclerView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
         recyclerView = findViewById(R.id.listaItem)
+
+        binding = ActivityPerfilBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.frameLayout.setOnClickListener {
+            goToProfileEdit()
+        }
 
         //configurar RecyclerView
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
@@ -92,6 +103,11 @@ class Perfil : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         return super.onCreateOptionsMenu(menu)
+    }
+
+    private fun goToProfileEdit(){
+        val telaProfileEdit= Intent(this, EditarPerfil::class.java)
+        startActivity(telaProfileEdit)
     }
 
 

@@ -166,12 +166,12 @@ class IndexActivity(
     }
 
     private fun goNotification() {
-        val viewNotification = Intent(
+        val notification = Intent(
             contex,
             Notification::class.java
         )
 
-        startActivity(viewNotification)
+        startActivity(notification)
     }
 
 }

@@ -1,10 +1,12 @@
 package com.example.go_app
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
+import android.widget.ImageView
 import android.widget.Toast
 import com.example.go_app.databinding.ActivityEditarPerfilBinding
 import com.example.go_app.models.UserAttRequest
@@ -26,6 +28,10 @@ class EditarPerfil : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditarPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.seta.setOnClickListener {
+            goToProfile()
+        }
 
         val pasta = getSharedPreferences(
             "CREDENCIAIS",
@@ -133,6 +139,11 @@ class EditarPerfil : AppCompatActivity() {
                 Toast.makeText(this@EditarPerfil, "Erro de conexão", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun goToProfile(){
+        val telaProfile= Intent(this, Perfil::class.java)
+        startActivity(telaProfile)
     }
 
 
