@@ -36,6 +36,14 @@ class ConfigUsuario(
         btn.setOnClickListener {
             desativaUsuario()
         }
+        val btnSair: Button = view.findViewById(R.id.btn_sair)
+        btnSair.setOnClickListener {
+            val pasta = getActivity()?.getSharedPreferences("CREDENCIAIS", Context.MODE_PRIVATE)
+            pasta?.getString("idLogado", "")
+            val editor = pasta?.edit()
+            editor?.putString("idLogado", "")
+            editor?.commit()
+        }
     }
 
 
