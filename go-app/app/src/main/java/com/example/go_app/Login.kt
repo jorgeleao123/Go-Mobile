@@ -94,7 +94,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun entrarHome() {
-        val telaHome = Intent(this, IndexActivity::class.java)
+        val telaHome = Intent(this, Home::class.java)
         startActivity(telaHome)
     }
 

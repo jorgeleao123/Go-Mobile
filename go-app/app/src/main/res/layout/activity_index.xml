@@ -98,25 +98,22 @@
                 android:orientation="horizontal"
                 android:paddingRight="15dp">
 
-                <EditText
-                    android:id="@+id/index_et_search"
-                    android:layout_width="wrap_content"
+
+                <TextView
+                    android:id="@+id/new_den"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="2"
-                    android:padding="10dp"
-                    android:background="@color/primary_gray"
+                    android:background="#4DEFE6E6"
                     android:fontFamily="@font/mukta_light"
-                    android:hint="@string/search_input"
-                    android:inputType="text"
+                    android:gravity="center"
+                    android:hint="Nova Denúncia"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/text_color"
-                    android:textSize="15dp" />
+                    android:textColorHint="@color/black"
+                    android:textSize="15dp">
 
-                <ImageView
-                    android:id="@+id/index_btn_search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_vectorsearch" />
+                </TextView>
+
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -127,15 +124,4 @@
 
     </ScrollView>
 </LinearLayout>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bottomNav"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/menu"
-        app:itemIconTint="@color/font_nav"
-        android:padding="-20dp"
-        android:background="@color/nav_color"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

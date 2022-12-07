@@ -235,7 +235,7 @@ class NovaDenuncia : AppCompatActivity() {
                 Toast.makeText(this@NovaDenuncia, "Erro de conexão", Toast.LENGTH_SHORT).show()
             }
         })
-        val telaIndex = Intent(this, IndexActivity::class.java)
+        val telaIndex = Intent(this, Home::class.java)
         startActivity(telaIndex)
     }
 

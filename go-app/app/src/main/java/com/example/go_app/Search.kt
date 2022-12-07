@@ -1,13 +1,14 @@
 package com.example.go_app
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.go_app.adapter.CustomAdapter
@@ -18,22 +19,34 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class Search : AppCompatActivity() {
+class Search(
+    val contex: Context,
+) : Fragment() {
     var recyclerView: RecyclerView? = null
     var inputPesquisa: EditText? = null
     var btnBusca: ImageView? = null
     var total: TextView? = null
     val listaPub = mutableListOf<ComplaintsResponse>()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
-        inputPesquisa = findViewById(R.id.search_et_search)
-        btnBusca = findViewById(R.id.search_btn_search)
-        total = findViewById(R.id.search_result)
 
-        recyclerView = findViewById(R.id.search_list_publication)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        return inflater.inflate(R.layout.activity_search, container, false)
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        inputPesquisa = view.findViewById(R.id.search_et_search)
+        btnBusca = view.findViewById(R.id.search_btn_search)
+        total = view.findViewById(R.id.search_result)
+
+        recyclerView = view.findViewById(R.id.search_list_publication)
         //configurar RecyclerView
-        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
+        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(contex)
         recyclerView?.layoutManager = layoutManager
         recyclerView?.setHasFixedSize(true)
 
@@ -43,13 +56,6 @@ class Search : AppCompatActivity() {
                     getPlaca(inputPesquisa!!.text.toString())
             }
         }
-        val buscar = intent.getStringExtra(
-            "busca"
-        )
-        if (buscar != null) {
-            getPlaca(buscar)
-        }
-
     }
 
     private fun getPlaca(value: String) {
@@ -109,18 +115,15 @@ class Search : AppCompatActivity() {
                         total!!.text =
                             "Encontramos ${listaPub.size} resultados para essa pesquisa!"
 
-                        val pasta = getSharedPreferences(
-                            "CREDENCIAIS",
-                            MODE_PRIVATE
-                        )
-
-                        val id = pasta.getString("idLogado", "")
+                        val pasta =
+                            getActivity()?.getSharedPreferences("CREDENCIAIS", Context.MODE_PRIVATE)
+                        val id = pasta?.getString("idLogado", "")
                         if (id != null) {
                             val adapter = CustomAdapter(
                                 listaPub,
                                 id.toString().toInt(),
                                 true,
-                                applicationContext
+                                contex
                             )
                             recyclerView?.adapter = adapter
                         }
@@ -138,24 +141,4 @@ class Search : AppCompatActivity() {
         )
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val index = Intent(this, IndexActivity::class.java)
-        val publication = Intent(this, NovaDenuncia::class.java)
-        val search = Intent(this, Search::class.java)
-        val save = Intent(this, ItensSalvos::class.java)
-        val config = Intent(this, ConfigUsuario::class.java)
-
-        when(item.itemId){
-            R.id.ic_index -> startActivity(index)
-            R.id.ic_publication -> startActivity(publication)
-            R.id.ic_search -> startActivity(search)
-            R.id.ic_save -> startActivity(save)
-            R.id.ic_settings -> startActivity(config)
-        }
-        return super.onOptionsItemSelected(item)
-    }
 }

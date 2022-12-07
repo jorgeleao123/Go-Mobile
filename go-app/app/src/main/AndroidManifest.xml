@@ -14,6 +14,13 @@
         android:theme="@style/Theme.Goapp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Home"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".EditarPerfil"
             android:exported="false">
             <meta-data
@@ -35,7 +42,7 @@
             android:exported="false" />
         <activity
             android:name=".IndexActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Perfil"
             android:exported="true" />
