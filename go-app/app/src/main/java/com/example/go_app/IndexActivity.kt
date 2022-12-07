@@ -56,10 +56,6 @@ class IndexActivity(
         recyclerView?.setHasFixedSize(true)
         val pasta = getActivity()?.getSharedPreferences("CREDENCIAIS", Context.MODE_PRIVATE)
 
-        val dark = pasta?.getBoolean("dark", false)
-        if (dark == true) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }
         btnPerfil!!.setOnClickListener {
             val telaPerfil = Intent(contex, Perfil::class.java)
             startActivity(telaPerfil)

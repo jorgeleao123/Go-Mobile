@@ -1,7 +1,9 @@
 package com.example.go_app
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.example.go_app.databinding.ActivityHomeBinding
 
@@ -13,6 +15,8 @@ class Home : AppCompatActivity() {
     private val searchPage = Search(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val pasta = getSharedPreferences("CREDENCIAIS", Context.MODE_PRIVATE)
+
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(indexPage)

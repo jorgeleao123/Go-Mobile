@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Switch
+import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.example.go_app.models.SuccessResponse
 import com.example.go_app.rest.Rest
@@ -33,32 +32,14 @@ class ConfigUsuario(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val switch: Switch = view.findViewById(R.id.switch1)
-        val pasta = getActivity()?.getSharedPreferences("CREDENCIAIS", Context.MODE_PRIVATE)
-        val editor = pasta?.edit()
-
-
-        val dark = pasta?.getBoolean("dark", false)
-        if (dark == true) {
-            switch.isChecked = true
-        }
-
-        switch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                editor?.putBoolean("dark", true)
-                editor?.commit()
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                editor?.putBoolean("dark", false)
-                editor?.commit()
-            }
-
+        val btn: Button = view.findViewById(R.id.btn_desativar)
+        btn.setOnClickListener {
+            desativaUsuario()
         }
     }
 
 
-    fun desativaUsuario(v: View) {
+    fun desativaUsuario() {
         var idLogado: String? = null
         val pasta = getActivity()?.getSharedPreferences("CREDENCIAIS", Context.MODE_PRIVATE)
         idLogado = pasta?.getString("idLogado", "")
