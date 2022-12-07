@@ -21,11 +21,9 @@ import retrofit2.Response
 class Perfil : AppCompatActivity() {
     private lateinit var binding : ActivityPerfilBinding
 
-    var recyclerView: RecyclerView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
-        recyclerView = findViewById(R.id.listaItem)
 
         binding = ActivityPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -36,8 +34,8 @@ class Perfil : AppCompatActivity() {
 
         //configurar RecyclerView
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-        recyclerView?.layoutManager = layoutManager
-        recyclerView?.setHasFixedSize(true)
+        binding.listaItem.layoutManager = layoutManager
+        binding.listaItem.setHasFixedSize(true)
         val pasta = getSharedPreferences(
             "CREDENCIAIS",
             MODE_PRIVATE
@@ -88,7 +86,7 @@ class Perfil : AppCompatActivity() {
                         totalPubli = findViewById(R.id.textView17)
                         totalPubli.text = response.body()!!.size.toString()
                         val adapter = CustomAdapter(response.body()!!,id,true,applicationContext)
-                        recyclerView?.adapter = adapter
+                        binding.listaItem.adapter = adapter
                     }
 
                 }

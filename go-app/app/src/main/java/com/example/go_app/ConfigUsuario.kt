@@ -43,6 +43,8 @@ class ConfigUsuario(
             val editor = pasta?.edit()
             editor?.putString("idLogado", "")
             editor?.commit()
+            val telaLogin = Intent(contex, MainActivity::class.java)
+            startActivity(telaLogin)
         }
     }
 

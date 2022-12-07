@@ -37,7 +37,7 @@ class TelaTermos : AppCompatActivity() {
         data = intent.getStringExtra("data").toString()
         sexo = intent.getStringExtra("sexo").toString()
         estado = intent.getStringExtra("estado").toString()
-        cidade = intent.getStringExtra("nome").toString()
+        cidade = intent.getStringExtra("cidade").toString()
         bairro = intent.getStringExtra("bairro").toString()
 
         binding.button.visibility = View.INVISIBLE

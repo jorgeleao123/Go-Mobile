@@ -34,7 +34,7 @@ class Notification : AppCompatActivity() {
             MODE_PRIVATE
         )
         btnBack!!.setOnClickListener {
-            val telaIndex = Intent(this, IndexActivity::class.java)
+            val telaIndex = Intent(this, Home::class.java)
             startActivity(telaIndex)
         }
         val id = pasta.getString("idLogado", "")
