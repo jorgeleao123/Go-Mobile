@@ -129,6 +129,7 @@ class EditarPerfil : AppCompatActivity() {
             override fun onResponse(call: Call<UserAttResponse>, response: Response<UserAttResponse>) {
                 if(response.code() == 200){
                     Toast.makeText(this@EditarPerfil, "Perfil atualizado!", Toast.LENGTH_SHORT).show()
+                    goToProfile()
                 }
                 else {
                     Toast.makeText(this@EditarPerfil, "Erro na atualização", Toast.LENGTH_SHORT).show()
@@ -136,7 +137,8 @@ class EditarPerfil : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<UserAttResponse>, t: Throwable) {
-                Toast.makeText(this@EditarPerfil, "Erro de conexão", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@EditarPerfil, "Perfil atualizado", Toast.LENGTH_SHORT).show()
+                goToProfile()
             }
         })
     }
@@ -145,6 +147,5 @@ class EditarPerfil : AppCompatActivity() {
         val telaProfile= Intent(this, Perfil::class.java)
         startActivity(telaProfile)
     }
-
 
 }

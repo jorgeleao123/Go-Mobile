@@ -1,5 +1,6 @@
 package com.example.go_app.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -59,16 +60,17 @@ class CustomAdapter(
     }
 
     // Replace the contents of a view (invoked by the layout manager)
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
         val complaint: ComplaintsResponse = dataSet[position]
-        val url = "http://10.0.2.2:8080/complaints/archive/${complaint.id}"
+//        val url = "http://10.0.2.2:8080/complaints/archive/${complaint.id}"
+        val url = "https://goapp-api.azurewebsites.net/complaints/archive/${complaint.id}"
         viewHolder.primeiraLetra.text = complaint.user.name.subSequence(0, 1)
         viewHolder.descricao.text = complaint.description
         viewHolder.nameUser.text = "${complaint.user.name.subSequence(0, 1)}******"
         viewHolder.tipo.text = "Classificação do caso: ${complaint.type}"
-        viewHolder.data.text =
-            complaint.address.district + complaint.address.city
+        viewHolder.data.text = "${complaint.address.district}, ${complaint.address.city}"
         if ((complaint.bo == null) || complaint.bo.equals("")) {
             viewHolder.textBoletim.visibility = View.INVISIBLE
             viewHolder.seloBoletim.visibility = View.INVISIBLE
