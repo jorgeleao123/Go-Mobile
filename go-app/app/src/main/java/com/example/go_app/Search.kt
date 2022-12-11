@@ -13,8 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.go_app.adapter.CustomAdapter
 import com.example.go_app.models.ComplaintsResponse
+import com.example.go_app.models.UserAttResponse
 import com.example.go_app.rest.Rest
 import com.example.go_app.services.Publications
+import com.example.go_app.services.Users
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -126,6 +128,12 @@ class Search(
                                 contex
                             )
                             recyclerView?.adapter = adapter
+                            val editor = pasta.edit()
+                            var buscas = pasta.getString("buscasFeitas", "0").toString().toInt()
+                            buscas += 1
+                            editor.putString("buscasFeitas", buscas.toString())
+                            editor.commit()
+                            addSearch(id.toString().toInt())
                         }
 
 
@@ -139,6 +147,32 @@ class Search(
 
             }
         )
+
+    }
+
+    private fun addSearch(value: Int) {
+        val request = Rest.getInstance().create(Users::class.java)
+        request.count(value).enqueue(
+            object : Callback<UserAttResponse> {
+                override fun onResponse(
+                    call: Call<UserAttResponse>,
+                    response: Response<UserAttResponse>
+                ) {
+                    if (response.code() == 404) {
+                        println("não foi")
+                    } else {
+                        println("aqui")
+                    }
+
+                }
+
+                override fun onFailure(call: Call<UserAttResponse>, t: Throwable) {
+                    println("não foi")
+                }
+
+            }
+        )
+
     }
 
 }

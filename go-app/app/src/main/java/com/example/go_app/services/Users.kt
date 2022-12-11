@@ -36,4 +36,8 @@ interface Users {
         @Path("id") id: Int,
     ): Call<SuccessResponse>
 
+    @PUT("/users/count/{userId}")
+    fun count(
+        @Path("userId") id: Int,
+    ): Call<UserAttResponse>
 }

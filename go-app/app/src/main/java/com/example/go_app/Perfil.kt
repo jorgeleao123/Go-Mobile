@@ -31,6 +31,10 @@ class Perfil : AppCompatActivity() {
         binding.frameLayout.setOnClickListener {
             goToProfileEdit()
         }
+        binding.setaVoltar.setOnClickListener{
+            val telaProfile= Intent(this, Home::class.java)
+            startActivity(telaProfile)
+        }
 
         //configurar RecyclerView
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
