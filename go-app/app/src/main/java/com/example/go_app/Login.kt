@@ -61,28 +61,28 @@ class Login : AppCompatActivity() {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 if (response.code() == 400) {
                     binding.tvErro.text = "Email e/ou senha inválidos"
-                } else {
-                    if(response.body()?.status.equals("inativo")){
+                } else if(response.code() == 403){
+                    binding.tvErro.text = "Erro no servidor"
+                }
+                else if(response.body()?.status.equals("inativo")){
                         binding.tvErro.text = "Conta Desativada"
-                    }else{
-                        val pasta = getSharedPreferences(
-                            "CREDENCIAIS",
-                            MODE_PRIVATE
-                        )
-                        val editor = pasta.edit()
-                        editor.putString("idLogado", response.body()?.id.toString())
-                        editor.commit()
-                        editor.putString("nomeLogado", response.body()?.name.toString())
-                        editor.commit()
-                        editor.putString("buscasFeitas", response.body()?.searchCounter.toString())
-                        editor.commit()
-                        editor.putString("colorProfile", response.body()?.colorProfile.toString())
-                        editor.commit()
-                        editor.putString("colorMenu", response.body()?.colorMenu.toString())
-                        editor.commit()
-                        entrarHome()
-                    }
-
+                } else if(response.code() == 200){
+                    val pasta = getSharedPreferences(
+                        "CREDENCIAIS",
+                        MODE_PRIVATE
+                    )
+                    val editor = pasta.edit()
+                    editor.putString("idLogado", response.body()?.id.toString())
+                    editor.commit()
+                    editor.putString("nomeLogado", response.body()?.name.toString())
+                    editor.commit()
+                    editor.putString("buscasFeitas", response.body()?.searchCounter.toString())
+                    editor.commit()
+                    editor.putString("colorProfile", response.body()?.colorProfile.toString())
+                    editor.commit()
+                    editor.putString("colorMenu", response.body()?.colorMenu.toString())
+                    editor.commit()
+                    entrarHome()
                 }
             }
 

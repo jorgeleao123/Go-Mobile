@@ -1,6 +1,6 @@
 <resources>
     <!-- global -->
-    <string name="app_name">GO</string>
+    <string name="app_name" translatable="false">GO</string>
     <string name="btn_proximo">Próximo</string>
     <string name="btn_anterior">Anterior</string>
     <string name="btn_entrar">Entrar</string>
@@ -43,7 +43,7 @@
     <!-- Cadastro 3 -->
     <string name="ca3_titulo">Localização</string>
     <string name="ca3_subtitulo">Agora precisamos da sua localização para filtrarmos as publicações do seu feed.</string>
-    <string name="ca3_cep">CEP</string>
+    <string name="ca3_cep" translatable="false">CEP</string>
     <string name="ca3_cep_hint">Insira seu CEP</string>
     <string name="ca3_estado">Estado</string>
     <string name="ca3_estado_hint">Insira seu estado</string>
@@ -53,7 +53,7 @@
     <!-- Login -->
     <string name="lo_titulo">Faça o Login</string>
     <string name="lo_subtitulo">Preencha seu email e senha e tenha acesso a um feed de denúncias na sua região.</string>
-    <string name="lo_esqueceu_senha">Esqueceu sua senha?</string>
+    <string name="lo_erro" translatable="false">Mensagem</string>
     <string name="lo_nao_possui">Não possui conta?</string>
     <string name="lo_registre">Registre-se</string>
 

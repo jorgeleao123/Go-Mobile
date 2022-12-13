@@ -122,9 +122,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:textAlignment="textEnd"
-                    tools:text="@string/lo_esqueceu_senha"
+                    tools:text="@string/lo_erro"
                     android:fontFamily="@font/mukta_regular"
-                    android:textColor="@color/text_color"
+                    android:textColor="@color/text_red"
                     android:textSize="11dp" />
 
             </LinearLayout>
