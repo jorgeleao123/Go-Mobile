@@ -76,11 +76,16 @@ class Cadastro3 : AppCompatActivity() {
 
         request.getEnderecoByCEP(cep).enqueue(object : Callback<CepResponse>{
             override fun onResponse(call: Call<CepResponse>, response: Response<CepResponse>) {
-                estado = response.body()!!.uf
-                cidade = response.body()!!.localidade
-                bairro = response.body()!!.bairro
-                binding.etEstado.setText(response.body()!!.uf)
-                binding.etCidade.setText(response.body()!!.localidade)
+                if(response.body() != null){
+                    estado = response.body()!!.uf
+                    cidade = response.body()!!.localidade
+                    bairro = response.body()!!.bairro
+                    binding.etEstado.setText(response.body()!!.uf)
+                    binding.etCidade.setText(response.body()!!.localidade)
+                }else{
+                    binding.etCep.setError("O CEP não existe")
+                }
+
             }
 
             override fun onFailure(call: Call<CepResponse>, t: Throwable) {

@@ -1,13 +1,18 @@
 package com.example.go_app
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.go_app.adapter.CustomAdapter
@@ -20,56 +25,61 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class IndexActivity : AppCompatActivity() {
+class IndexActivity(
+    val contex: Context
+) : Fragment() {
     var recyclerView: RecyclerView? = null
     var btnPerfil: FrameLayout? = null
-    var inputPesquisa: EditText? = null
-    var btnBusca: ImageView? = null
+    var inputPesquisa: TextView? = null
     var btnNotification: ImageView? = null
     var idLogado: String? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_index)
-        recyclerView = findViewById(R.id.index_list_publication)
-        btnPerfil = findViewById(R.id.index_profile)
-        inputPesquisa = findViewById(R.id.index_et_search)
-        btnBusca = findViewById(R.id.index_btn_search)
-        btnNotification = findViewById(R.id.index_notification)
 
-        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        return inflater.inflate(R.layout.activity_index,container,false)
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView = view.findViewById(R.id.index_list_publication)
+        btnPerfil = view.findViewById(R.id.index_profile)
+        inputPesquisa = view.findViewById(R.id.new_den)
+        btnNotification = view.findViewById(R.id.index_notification)
+
+        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(contex)
         recyclerView?.layoutManager = layoutManager
         recyclerView?.setHasFixedSize(true)
-        val pasta = getSharedPreferences(
-            "CREDENCIAIS",
-            MODE_PRIVATE
-        )
+        val pasta = getActivity()?.getSharedPreferences("CREDENCIAIS", Context.MODE_PRIVATE)
 
-        val dark = pasta.getBoolean("dark", false)
-        if (dark) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }
         btnPerfil!!.setOnClickListener {
-            val telaPerfil = Intent(this, Perfil::class.java)
+            val telaPerfil = Intent(contex, Perfil::class.java)
             startActivity(telaPerfil)
         }
-        btnBusca!!.setOnClickListener {
+        inputPesquisa!!.setOnClickListener {
             irPesquisa()
         }
         btnNotification!!.setOnClickListener {
             goNotification()
         }
-        idLogado = pasta.getString("idLogado", "")
-        val nome = pasta.getString("nomeLogado", "")
+        idLogado = pasta?.getString("idLogado", "")
+        val nome = pasta?.getString("nomeLogado", "")
         if (idLogado != null) {
             var nomeTela: TextView? = null
-            nomeTela = findViewById(R.id.index_text_name)
+            nomeTela = view.findViewById(R.id.index_text_name)
             var primeiraLetra: TextView? = null
-            primeiraLetra = findViewById(R.id.tv_valor)
+            primeiraLetra = view.findViewById(R.id.tv_valor)
             nomeTela.text = nome
             primeiraLetra.text = nome!!.subSequence(0, 1)
             getAddress(idLogado.toString().toInt())
         }
+
     }
+
 
     private fun getMovies(endereco: String) {
         val request = Rest.getInstance().create(Publications::class.java)
@@ -94,7 +104,7 @@ class IndexActivity : AppCompatActivity() {
                         val adapter =
                             CustomAdapter(
                                 listaPub, idLogado.toString().toInt(), true,
-                                applicationContext
+                                contex
                             )
                         recyclerView?.adapter = adapter
                     }
@@ -121,19 +131,17 @@ class IndexActivity : AppCompatActivity() {
                     if (response.code() == 404) {
                         println("não foi")
                     } else {
-                        val pasta = getSharedPreferences(
-                            "CREDENCIAIS",
-                            MODE_PRIVATE
-                        )
-                        val editor = pasta.edit()
-                        editor.putString(
+                        val pasta =
+                            getActivity()?.getSharedPreferences("CREDENCIAIS", Context.MODE_PRIVATE)
+                        val editor = pasta?.edit()
+                        editor?.putString(
                             "cidadeLogado",
                             "${response.body()!![0].city}, ${response.body()!![0].district}"
                         )
-                        editor.commit()
+                        editor?.commit()
                         var cidade: TextView? = null
-                        cidade = findViewById(R.id.index_text_city)
-                        cidade.text =
+                        cidade = view?.findViewById(R.id.index_text_city)
+                        cidade?.text =
                             "${response.body()!![0].city}, ${response.body()!![0].district}"
                         getMovies(response.body()!![0].city)
                     }
@@ -149,27 +157,21 @@ class IndexActivity : AppCompatActivity() {
     }
 
     private fun irPesquisa() {
-        val telaPesquisa = Intent(
-            this,
-            Search::class.java
+        val tela = Intent(
+            contex,
+            NovaDenuncia::class.java
         )
-        var busca = ""
-        if (inputPesquisa!!.text.isNotEmpty() && inputPesquisa!!.text.isNotBlank()) {
-            busca = inputPesquisa!!.text.toString()
-        }
-        telaPesquisa.putExtra(
-            "busca",
-            busca
-        )
-        startActivity(telaPesquisa)
+
+        startActivity(tela)
     }
 
     private fun goNotification() {
-        val viewNotification = Intent(
-            this,
+        val notification = Intent(
+            contex,
             Notification::class.java
         )
 
-        startActivity(viewNotification)
+        startActivity(notification)
     }
+
 }

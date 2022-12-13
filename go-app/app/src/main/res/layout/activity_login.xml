@@ -91,15 +91,17 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/primary_gray"
+                    android:paddingRight="15dp">
 
                     <EditText
                         android:id="@+id/et_password"
                         android:layout_width="0dp"
-                        android:layout_weight="5"
+                        android:layout_weight="1"
                         android:layout_height="50dp"
-                        android:inputType="textPassword"
                         android:hint="@string/ca1_senha_hint"
+                        android:inputType="textPassword"
                         android:fontFamily="@font/mukta_light"
                         android:textSize="15dp"
                         android:textColor="@color/black"
@@ -108,12 +110,9 @@
 
                     <ImageView
                         android:id="@+id/iv_hide"
-                        android:padding="15dp"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:background="@color/primary_gray"
-                        android:src="@drawable/hide"/>
+                        android:src="@drawable/password"/>
 
                 </LinearLayout>
 
@@ -123,10 +122,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:textAlignment="textEnd"
-                    tools:text="@string/lo_esqueceu_senha"
-                    android:fontFamily="@font/mukta_semibold"
+                    tools:text="@string/lo_erro"
+                    android:fontFamily="@font/mukta_regular"
                     android:textColor="@color/text_red"
-                    android:textSize="15dp" />
+                    android:textSize="11dp" />
 
             </LinearLayout>
 

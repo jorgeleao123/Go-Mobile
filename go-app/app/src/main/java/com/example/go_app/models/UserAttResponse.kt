@@ -9,5 +9,6 @@ data class UserAttResponse(
     val colorProfile: String,
     val colorMenu: String,
     val birthDate: String,
-    val status : String,
+    val status: String,
+    val searchCounter: Int
 )

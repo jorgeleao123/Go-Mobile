@@ -1,14 +1,4 @@
-# GO APP
-Creators
-
- - Christian Hitoshi T. Hamai - tetihamai@gmail.com
- - Jorge Ricardo Leão - 
- - Maurício Atsushi Ishikawa - 
- - Pedro Aragão -
- - Rafaella Kimberlly 
- - Tais Fermino - 
- 
- 
+# GO APP 
 
 # Versions
 (Exemplo de versão)

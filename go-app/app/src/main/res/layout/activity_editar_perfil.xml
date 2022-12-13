@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="25dp"
+    android:padding="20dp"
     tools:context=".EditarPerfil">
 
     <LinearLayout
@@ -13,9 +13,10 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/arrow_left_icon" />
+            android:id="@+id/seta"
+            android:layout_width="8dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_vectorseta" />
 
         <TextView
             android:layout_width="match_parent"
@@ -74,29 +75,29 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/primary_gray"
+                    android:paddingRight="15dp">
 
                     <EditText
                         android:id="@+id/et_cep"
-                        android:layout_width="0dp"
-                        android:layout_weight="5"
+                        android:layout_width="wrap_content"
                         android:layout_height="50dp"
+                        android:layout_weight="2"
+                        android:padding="10dp"
                         android:background="@color/primary_gray"
                         android:fontFamily="@font/mukta_light"
                         android:hint="@string/ca3_cep_hint"
                         android:maxLength="8"
-                        android:paddingLeft="10dp"
+                        android:inputType="text"
                         android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"/>
 
                     <ImageView
                         android:id="@+id/iv_search"
-                        android:padding="10dp"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:background="@color/primary_gray"
-                        android:src="@drawable/search"/>
+                        android:src="@drawable/ic_vectorsearch" />
 
                 </LinearLayout>
 
@@ -130,12 +131,14 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/primary_gray"
+                    android:paddingRight="15dp">
 
                     <EditText
                         android:id="@+id/et_senha"
                         android:layout_width="0dp"
-                        android:layout_weight="5"
+                        android:layout_weight="1"
                         android:layout_height="50dp"
                         android:hint="@string/ca1_senha_hint"
                         android:inputType="textPassword"
@@ -147,12 +150,9 @@
 
                     <ImageView
                         android:id="@+id/iv_hide"
-                        android:padding="10dp"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:background="@color/primary_gray"
-                        android:src="@drawable/hide"/>
+                        android:src="@drawable/password"/>
 
                 </LinearLayout>
 
@@ -167,12 +167,14 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/primary_gray"
+                    android:paddingRight="15dp">
 
                     <EditText
                         android:id="@+id/et_confirmSenha"
                         android:layout_width="0dp"
-                        android:layout_weight="5"
+                        android:layout_weight="1"
                         android:layout_height="50dp"
                         android:hint="@string/ca1_senha_hint"
                         android:inputType="textPassword"
@@ -184,12 +186,9 @@
 
                     <ImageView
                         android:id="@+id/iv_hide2"
-                        android:padding="10dp"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:background="@color/primary_gray"
-                        android:src="@drawable/hide"/>
+                        android:src="@drawable/password"/>
 
                 </LinearLayout>
             </LinearLayout>

@@ -2,6 +2,8 @@ package com.example.go_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +19,7 @@ import retrofit2.Response
 class Notification : AppCompatActivity() {
     var recyclerView: RecyclerView? = null
     var btnBack: ImageView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notification)
@@ -31,7 +34,7 @@ class Notification : AppCompatActivity() {
             MODE_PRIVATE
         )
         btnBack!!.setOnClickListener {
-            val telaIndex = Intent(this, IndexActivity::class.java)
+            val telaIndex = Intent(this, Home::class.java)
             startActivity(telaIndex)
         }
         val id = pasta.getString("idLogado", "")
@@ -102,4 +105,9 @@ class Notification : AppCompatActivity() {
         )
 
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return super.onCreateOptionsMenu(menu)
+    }
+
 }

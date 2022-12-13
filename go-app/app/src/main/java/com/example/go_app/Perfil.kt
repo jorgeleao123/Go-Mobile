@@ -1,11 +1,16 @@
 package com.example.go_app
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.go_app.adapter.CustomAdapter
+import com.example.go_app.databinding.ActivityEditarPerfilBinding
+import com.example.go_app.databinding.ActivityPerfilBinding
 import com.example.go_app.models.ComplaintsResponse
 import com.example.go_app.rest.Rest
 import com.example.go_app.services.Publications
@@ -14,16 +19,27 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Perfil : AppCompatActivity() {
-    var recyclerView: RecyclerView? = null
+    private lateinit var binding : ActivityPerfilBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
-        recyclerView = findViewById(R.id.listaItem)
+
+        binding = ActivityPerfilBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.frameLayout.setOnClickListener {
+            goToProfileEdit()
+        }
+        binding.setaVoltar.setOnClickListener{
+            val telaProfile= Intent(this, Home::class.java)
+            startActivity(telaProfile)
+        }
 
         //configurar RecyclerView
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-        recyclerView?.layoutManager = layoutManager
-        recyclerView?.setHasFixedSize(true)
+        binding.listaItem.layoutManager = layoutManager
+        binding.listaItem.setHasFixedSize(true)
         val pasta = getSharedPreferences(
             "CREDENCIAIS",
             MODE_PRIVATE
@@ -74,7 +90,7 @@ class Perfil : AppCompatActivity() {
                         totalPubli = findViewById(R.id.textView17)
                         totalPubli.text = response.body()!!.size.toString()
                         val adapter = CustomAdapter(response.body()!!,id,true,applicationContext)
-                        recyclerView?.adapter = adapter
+                        binding.listaItem.adapter = adapter
                     }
 
                 }
@@ -86,5 +102,15 @@ class Perfil : AppCompatActivity() {
             }
         )
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    private fun goToProfileEdit(){
+        val telaProfileEdit= Intent(this, EditarPerfil::class.java)
+        startActivity(telaProfileEdit)
+    }
+
 
 }
